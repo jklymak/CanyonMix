@@ -22,7 +22,7 @@ if True:
   runname = 'StraightSlopeExpStrat001'
   comments = "Just gettings started"
 
-  u0 = 0.02
+  u0 = 0.1
   N0 = 1e-3
   f0 = 1.410e-4
   f0 = 0.0
@@ -183,7 +183,9 @@ if True:
   d=np.zeros((ny,nx))
   H = 2000
   d[0, ] = (-np.max(x)+x)*H / 20_000
+
   d[0, d[0, :]<-H] = -H
+  d[0, d[0, :]>-100] = -100
 
   with open(indir+"/topog.bin", "wb") as f:
     d.tofile(f)

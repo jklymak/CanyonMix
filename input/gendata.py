@@ -19,8 +19,8 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-  runname = 'StraightSlopeExpStrat001'
-  comments = "Just gettings started"
+  runname = 'StraightSlopeExpStrat002'
+  comments = "55 km wide slope (subcritical?)"
 
   u0 = 0.05
   N0 = 1e-3

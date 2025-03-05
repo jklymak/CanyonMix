@@ -150,7 +150,7 @@ if True:
 
   # dx = zeros(nx)+100.
   x=np.cumsum(dx)
-  x=x-x[0]
+  x = x - x[-1] + 20_000
 
   ##### Dy ######
 

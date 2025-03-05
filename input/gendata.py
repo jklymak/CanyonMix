@@ -22,7 +22,7 @@ if True:
   runname = 'StraightSlopeExpStrat001'
   comments = "Just gettings started"
 
-  u0 = 20
+  u0 = 0.02
   N0 = 1e-3
   f0 = 1.410e-4
   f0 = 0.0
@@ -231,12 +231,17 @@ if True:
   ax.set_ylim([2000, 0])
   fig.savefig(outdir+'/figs/TO.pdf')
 
-  ###########################
-  # velcoity data
-  #for j in range(nz):
-  #  aa = np.ones((ny,nx)) * U0
-  #  with open(indir+"/Uinit.bin", "ab") as f:
-  #    aa.tofile(f)
+  t = np.arange(0, 1240*36, 1240)
+  om = 2*np.pi/3600/12.4
+  uwn = u0 * np.sin(om*t)
+  with open(indir+"/Uw.bin","wb") as f:
+    uwn.tofile(f)
+  with open(indir+"/Tw.bin","wb") as f:
+    T0.tofile(f)
+
+  fig, ax = plt.subplots()
+  ax.plot(t, uwn)
+  fig.savefig(outdir+'/figs/uwn.pdf')
 
 
   _log.info('Writing info to README')

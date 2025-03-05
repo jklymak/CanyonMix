@@ -15,8 +15,8 @@
  diffKzT=1.E-5,
  implicitDiffusion=.TRUE.,
  implicitViscosity=.TRUE.,
- f0=1.410e-04,
- beta=5.900e-12,
+ f0=0.000e+00,
+ beta=0.000e+00,
  eosType='LINEAR',
  tAlpha=2.E-4,
  sBeta =0.E-4,
@@ -56,8 +56,8 @@
 # Time stepping parameters
  &PARM03
  startTime=0,
- endTime=903700,
- deltaT=25.,
+ endTime=259380,
+ deltaT=30,
  abEps=0.1,
 # 3d:
  pChkptFreq=259200.0,

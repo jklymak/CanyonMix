@@ -4,14 +4,8 @@
 
 The version I'll use is the `varbd_bt` branch of my own fork.  https://github.com/jklymak/MITgcm/
 
+## Mixing on a slope...
 
-## Runs: koehr
-
-- Iso1kmlowU10Amp305f141B059Base:
-  - base run, u ro east, beta plane
-- Iso1kmlowU10Amp305f141B000Base:
-  - no beta
-- Wall on north side.
 
 
 

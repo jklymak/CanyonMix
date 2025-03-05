@@ -186,7 +186,7 @@ if True:
 
   d[0, d[0, :]<-H] = -H
   d[0, d[0, :]>-200] = -200
-  d[0, -1] = 0
+  #d[0, -1] = 0
 
   with open(indir+"/topog.bin", "wb") as f:
     d.tofile(f)
@@ -244,6 +244,11 @@ if True:
       uwn[:,i,j]=uw
   with open(indir+"/Uw.bin","wb") as f:
     uwn.tofile(f)
+  for j in range(0,ny):
+    for i in range(0,nz):
+      uwn[:,i,j]=uw * 10.0
+  with open(indir+"/Ue.bin","wb") as f:
+    uwn.tofile(f)
 
   t = np.zeros((np.shape(time)[0],nz,ny))
   for j in range(0,ny):
@@ -252,6 +257,8 @@ if True:
         t[k,i,j]=T0[i]
 
   with open(indir+"/Tw.bin","wb") as f:
+    t.tofile(f)
+  with open(indir+"/Te.bin","wb") as f:
     t.tofile(f)
 
   fig, ax = plt.subplots()

@@ -8,6 +8,8 @@
  useOBCSprescribe=.TRUE.,
  OBWuFile = '../indata/Uw.bin',
  OBWtFile = '../indata/Tw.bin',
+ OBEuFile = '../indata/Ue.bin',
+ OBEtFile = '../indata/Te.bin',
  /
 
 # Orlanski parameters

@@ -29,6 +29,7 @@
  nonHydrostatic=.FALSE.,
  hFacMin=1.,
  tempAdvScheme=77,
+ saltAdvScheme=77,
 # implicSurfPress=0.5,
 # implicDiv2DFlow=0.5,
 # nonlinFreeSurf=3,

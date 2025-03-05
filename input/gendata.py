@@ -147,7 +147,7 @@ if True:
   dx = np.zeros(nx) + 100.0
   for i in range(25,0, -1):
     dx[i] = dx[i+1]*1.03
-
+  print(dx)
   # dx = zeros(nx)+100.
   x=np.cumsum(dx)
   x = x - x[-1] + 20_000

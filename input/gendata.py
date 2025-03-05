@@ -22,7 +22,7 @@ if True:
   runname = 'StraightSlopeExpStrat001'
   comments = "Just gettings started"
 
-  u0 = 0.25
+  u0 = 0.05
   N0 = 1e-3
   f0 = 1.410e-4
   f0 = 0.0

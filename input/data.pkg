@@ -5,5 +5,4 @@
  useDIAGNOSTICS=.TRUE.,
  useMNC=.TRUE.,
  useOBCS=.TRUE.,
- #useBTFORCING=.TRUE.,
  /

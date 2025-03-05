@@ -6,21 +6,17 @@
  OB_Jsouth=256*0,
  useOBCSsponge=.TRUE.,
  useOBCSprescribe=.TRUE.,
- #OBEuFile = '../indata/Ue.bin',
  OBWuFile = '../indata/Uw.bin',
- #OBEtFile = '../indata/Te.bin',
  OBWtFile = '../indata/Tw.bin',
  /
 
 # Orlanski parameters
  &OBCS_PARM02
-/
+ /
 
 # Sponge layer parameters
  &OBCS_PARM03
  Urelaxobcsinner=1000.,
  Urelaxobcsbound=100.,
- #Vrelaxobcsinner=1000.0,
- #Vrelaxobcsbound=100.0,
  spongeThickness=13,
  /

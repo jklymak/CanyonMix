@@ -56,25 +56,20 @@
 # Time stepping parameters
  &PARM03
  startTime=0,
- endTime=446_400,
+ endTime=446400,
  deltaT=6.2,
  abEps=0.1,
-# 3d:
- pChkptFreq=223_200.0,
+ pChkptFreq=223200.0,
  chkptFreq=0.,
  dumpFreq=0,
- dumpInitAndLast=.FALSE.
+ dumpInitAndLast=.FALSE.,
  monitorFreq=3720.,
  monitorSelect=2,
  rwSuffixType=2,
- # 1860
- # Forcing for boundary condition files
  periodicExternalForcing=.TRUE.,
- # 1/36th M2 tidal period...
  externForcingPeriod = 1240.,
- # one tidal period (12 records need to be in OBWuFile, etc)
  externForcingCycle = 44640.,
-/
+ /
 
 # Gridding parameters
  &PARM04

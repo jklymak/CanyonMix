@@ -182,7 +182,7 @@ if True:
   # get the topo:
   d=np.zeros((ny,nx))
   H = 2000
-  d[0, ] = (-np.max(x)+x+20_000)*H / 20_000
+  d[0, ] = (-np.max(x)+x+20_000)*H / 40_000
 
   d[0, d[0, :]<-H] = -H
   d[0, d[0, :]>-200] = -200

@@ -145,6 +145,8 @@ if True:
   ##### Dx ######
 
   dx = np.zeros(nx) + 100.0
+  for i in range(25,0, -1):
+    dx[i] = dx[i+1]*1.03
 
   # dx = zeros(nx)+100.
   x=np.cumsum(dx)

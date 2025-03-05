@@ -182,11 +182,11 @@ if True:
   # get the topo:
   d=np.zeros((ny,nx))
   H = 2000
-  d[0, ] = (-np.max(x)+x)*H / 20_000
+  d[0, ] = (-np.max(x)+x+20_000)*H / 20_000
 
   d[0, d[0, :]<-H] = -H
   d[0, d[0, :]>-200] = -200
-  d[0, -1] = 0
+  #d[0, -1] = 0
 
   with open(indir+"/topog.bin", "wb") as f:
     d.tofile(f)

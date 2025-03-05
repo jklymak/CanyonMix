@@ -7,7 +7,7 @@ The version I'll use is the `varbd_bt` branch of my own fork.  https://github.co
 ## Mixing on a slope...
 
 
-
+`../../MITgcm/tools/genmake2 -optfile=../build_options/onyx -mods=../code/ -rootdir=../../MITgcm -mpi`
 
 ### Todo:
 - U = -0.1

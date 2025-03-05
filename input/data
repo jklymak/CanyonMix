@@ -34,7 +34,7 @@
 # nonlinFreeSurf=3,
 # hFacInf=0.2,
 # hFacSup=1.8,
- saltStepping=.FALSE.,
+ saltStepping=.TRUE.,
  staggerTimeStep=.TRUE.,
  momTidalForcing=.FALSE.,
 #- not safe to use globalFiles in multi-processors runs
@@ -81,10 +81,11 @@
 
 # Input datasets
  &PARM05
-# hydrogThetaFile='../indata/T.init',
-# uVelInitFile='../indata/Uinit.bin',
+ hydrogThetaFile='../indata/Tinit.bin',
+ uVelInitFile='../indata/Uinit.bin',
 # vVelInitFile='../indata/V.init',
-# pSurfInitFile='../indata/Eta.init',
+ pSurfInitFile='../indata/Etainit.bin',
+ hydrogSaltFile='../indata/Sinit.bin',
  bathyFile='../indata/topog.bin',
  mdsioLocalDir='./junk/',
  /

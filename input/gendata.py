@@ -145,7 +145,7 @@ if True:
   ##### Dx ######
 
   dx = np.zeros(nx) + 100.0
-  for i in range(25,-1, -1):
+  for i in range(35,-1, -1):
     dx[i] = dx[i+1]*1.03
   print(dx)
   # dx = zeros(nx)+100.

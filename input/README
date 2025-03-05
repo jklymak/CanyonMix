@@ -1,0 +1,832 @@
+2021-12-01 04:45:17
+../results/OneHill100lowU20N10Amp305f141B059Rough/input/
+One 100 km radius hill, rough, but using the same code
+
+2021-11-22 01:29:59
+../results/OneHill100lowU20N10Amp305f141B059Sm200/input/
+One 100 km radius hill, rough, but using the same code
+
+2021-11-22 01:24:53
+../results/OneHill100lowU20N10Amp305f141B059SmNoDrag/input/
+One 100 km radius hill, rough, but using the same code
+
+2021-11-22 01:20:01
+../results/OneHill100lowU20N10Amp305f141B059Rough/input/
+One 100 km radius hill, rough, but using the same code
+
+2021-11-22 01:15:07
+../results/OneHill100lowU5N10Amp305f141B059Sm200/input/
+One 100 km radius hill, rough, but using the same code
+
+2021-11-22 01:09:26
+../results/OneHill100lowU5N10Amp305f141B059SmNoDrag/input/
+One 100 km radius hill, rough, but using the same code
+
+2021-11-22 00:51:01
+../results/OneHill100lowU5N10Amp305f141B059Rough/input/
+One 100 km radius hill, rough, but using the same code
+
+2021-11-10 06:11:42
+../results/OneHill100lowU10N10Amp305f141B059Rough/input/
+One 100 km radius hill, rough, but using the same code
+
+2021-11-10 06:06:26
+../results/OneHill100lowU10N10Amp305f141B059SmNoDrag/input/
+One 100 km radius hill, smooth, with no param drag, but using the same code
+
+2021-11-10 06:02:49
+../results/OneHill100lowU10N10Amp305f141B059SmNoDrag/input/
+One 300 km radius hill, smooth, with param drag correct N power
+
+2021-11-10 00:49:37
+../results/OneHill300lowU10N10Amp305f141B059Sm200/input/
+One 300 km radius hill, smooth, with param drag correct N power
+
+2021-11-10 00:47:35
+../results/OneHill300lowU10N10Amp305f141B059Sm200/input/
+One 300 km radius hill, smooth, with param drag correct N power
+
+2021-11-09 01:12:44
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+No hill, no wall or beta; smooth, param; redo with correct N power
+
+2021-10-25 01:26:03
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+No hill, no wall or beta; smooth, param; redo with correct N power
+
+2021-10-21 01:51:44
+../results/NoWalllowU10N10Amp305f141B000Sm200/input/
+No hill, no wall or beta; smooth, param; redo with correct N power
+
+2021-10-19 06:03:08
+../results/NoWalllowU10N10Amp305f141B000Sm200/input/
+No hill, no wall or beta; smooth, param
+
+2021-10-19 05:59:00
+../results/NoWalllowU10N10Amp305f141B000SmNoDrag/input/
+No hill, no wall or beta; rough, No param
+
+2021-10-19 05:56:56
+../results/NoWalllowU10N10Amp305f141B000Rough/input/
+No hill, no wall or beta; rough, No param
+
+2021-10-18 01:52:04
+../results/NoHilllowU10N10Amp305f141B059SmNoDrag/input/
+No hill, but wall and beta; smooth, No param
+
+2021-10-18 01:50:15
+../results/NoHilllowU10N10Amp305f141B059Sm200/input/
+No hill, but wall and beta; smooth, param
+
+2021-10-18 01:46:07
+../results/NoHilllowU10N10Amp305f141B059Rough/input/
+No hill, but wall and beta; rough
+
+2021-10-12 00:37:53
+../results/OneHill300lowU10N10Amp305f141B059Sm200/input/
+One 300 km radius hill, smooth, with param drag
+
+2021-10-12 00:36:07
+../results/OneHill300lowU10N10Amp305f141B059SmNoDrag/input/
+One 300 km radius hill, smooth, no param drag
+
+2021-10-12 00:33:55
+../results/OneHill300lowU10N10Amp305f141B059SmNoDrag/input/
+One 300 km radius hill, rough, no param drag
+
+2021-10-12 00:30:54
+../results/OneHill300lowU10N10Amp305f141B059Rough/input/
+One 300 km radius hill, rough, no param drag
+
+2021-10-11 01:24:50
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smooth, no param drag
+
+2021-10-07 01:16:45
+../results/OneHill100lowU10N10Amp305f141B059SmNoDrag/input/
+One 100 km radius hill, rough, no param drag
+
+2021-10-07 01:13:29
+../results/OneHill100lowU10N10Amp305f141B059Rough/input/
+One 100 km radius hill, rough, no param drag
+
+2021-10-07 01:12:40
+../results/OneHill100lowU10N10Amp305f141B059Rough/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 04:44:40
+../results/OneHill100lowU10N10Amp305f141B059Rough/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 04:43:09
+../results/OneHill100lowU10N10Amp305f141B059Patch0Rough/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 04:36:24
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 04:30:24
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 04:28:27
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 04:27:23
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 04:26:28
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 04:15:26
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 04:12:35
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 04:09:34
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 04:06:32
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 04:05:04
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 04:00:32
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-05 00:27:17
+../results/OneHill100lowU10N10Amp305f141B059Patch0Rough/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-10-04 02:55:40
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smoothed with var drag, fixed typo
+
+2021-09-28 01:42:01
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smooth.
+
+2021-09-28 01:39:32
+../results/OneHill100lowU10N10Amp305f141B059Sm200/input/
+One 100 km radius hill, smooth.
+
+2021-09-24 01:40:16
+../results/OneHill100lowU10N10Amp305f141B059Rough/input/
+One 100 km radius hill, full roughness.
+
+2021-09-24 01:25:48
+../results/Patch1kmlowU10N10Amp305f141B059Rough/input/
+Forward basic case
+
+2021-09-24 01:24:07
+../results/Patch1kmlowU10N10Amp305f141B059Rough/input/
+Forward basic case
+
+2021-09-24 01:22:52
+../results/Patch1kmlowU10N10Amp305f141B059Rough/input/
+Forward basic case
+
+2021-09-24 01:21:03
+../results/Patch1kmlowU10N10Amp305f141B059Rough/input/
+Forward basic case
+
+2021-09-24 01:19:19
+../results/Patch1kmlowU10N10Amp305f141B059Rough/input/
+Forward basic case
+
+2021-09-24 01:14:42
+../results/Patch1kmlowU10N10Amp305f141B059Rough/input/
+Forward basic case
+
+2021-09-23 08:31:24
+../results/Patch1kmlowU10N10Amp305f141B059Rough/input/
+Forward basic case
+
+2021-09-21 05:16:56
+../results/Patch1kmlowU10N10Amp305f141B059Rough/input/
+Forward basic case
+
+2021-07-09 11:04:35
+../results/Iso3kmlowU10N10Amp305f141B000AllRough/input/
+Forward basic case
+
+2021-03-30 13:27:04
+../results/Iso3kmlowU10N10Amp305f141B000AllRough/input/
+Forward basic case
+
+2021-03-30 10:05:49
+../results/Iso3kmlowU10N10Amp305f141B000AllRough600Amp/input/
+Forward basic case
+
+2021-03-30 08:52:12
+../results/Iso3kmlowU15N10Amp305f141B000AllRough600/input/
+Forward basic case
+
+2021-03-30 08:50:42
+../results/Iso3kmlowU5N10Amp305f141B000AllRough600/input/
+Forward basic case
+
+2021-03-30 08:47:55
+../results/Iso3kmlowU10N10Amp305f141B000AllRough600/input/
+Forward basic case
+
+2021-03-30 07:59:06
+../results/Iso3kmlowU15N10Amp305f141B000AllRough/input/
+Forward basic case
+
+2021-03-30 07:53:35
+../results/Iso3kmlowU5N10Amp305f141B000AllRough/input/
+Forward basic case
+
+2021-03-29 18:42:19
+../results/Iso3kmlowU10N10Amp305f141B000AllRough/input/
+Forward basic case
+
+2021-03-29 18:41:45
+../results/Iso3kmlowU15N10Amp305f141B000AllRough/input/
+Forward basic case
+
+2021-03-29 18:40:29
+../results/Iso3kmlowU15N10Amp305f141B000AllRough/input/
+Forward basic case
+
+2021-03-29 15:18:00
+../results/Iso3kmlowU15N0010Amp305f141B059AllRough600NewMeanBotNsq4/input/
+Forward basic case
+
+2021-03-29 15:15:52
+../results/Iso3kmlowU5N0010Amp305f141B059AllRough600NewMeanBotNsq4/input/
+Forward basic case
+
+2021-03-29 12:15:07
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600NewMeanBotNsq4/input/
+Forward basic case
+
+2021-03-29 09:49:09
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600NewMeanBotNsq3/input/
+Forward basic case
+
+2021-03-24 21:14:15
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600NewMeanBotNsq/input/
+Forward basic case
+
+2021-03-24 20:09:47
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600NewMeanBotNsq/input/
+Forward basic case
+
+2021-03-24 17:49:55
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600NewMeanBotNsq/input/
+Forward basic case
+
+2021-03-24 16:18:17
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600FreeStream/input/
+Forward basic case
+
+2021-03-24 15:48:33
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600FreeStream/input/
+Forward basic case
+
+2021-03-24 11:31:09
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600FreeStream/input/
+Forward basic case
+
+2021-03-24 08:17:00
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600FreeStream/input/
+Forward basic case
+
+2021-03-24 07:20:16
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600NewMeanBotNsq/input/
+Forward basic case
+
+2021-03-23 22:39:10
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600NewMeanBotNsq/input/
+Forward basic case
+
+2021-03-23 17:32:28
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600NewMeanBotHalf/input/
+Forward basic case
+
+2021-03-23 17:16:06
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600New50Bot/input/
+Forward basic case
+
+2021-03-23 14:48:02
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600NewJustBot/input/
+Forward basic case
+
+2021-03-23 14:37:42
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600NewMeanBot/input/
+Forward basic case
+
+2021-03-23 07:15:45
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600NewBlock/input/
+Forward basic case
+
+2021-03-22 16:52:19
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600NewWMix/input/
+Forward basic case
+
+2021-03-22 14:38:15
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600New/input/
+Forward basic case
+
+2021-03-22 12:54:33
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600New/input/
+Forward basic case
+
+2021-03-22 09:59:57
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600New/input/
+Forward basic case
+
+2021-03-21 20:34:34
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600New/input/
+Forward basic case
+
+2021-03-21 19:20:28
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600New/input/
+Forward basic case
+
+2021-03-21 15:03:27
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600New/input/
+Forward basic case
+
+2021-03-21 14:36:54
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600New/input/
+Forward basic case
+
+2021-03-21 14:01:21
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600New/input/
+Forward basic case
+
+2021-03-21 13:35:32
+../results/Iso3kmlowU10N0010Amp305f141B059AllRough600New/input/
+Forward basic case
+
+2021-03-21 13:20:41
+../results/Iso3kmlowU10N0001Amp305f141B059AllRough600New/input/
+Forward basic case
+
+2021-03-18 08:10:08
+../results/Iso3kmlowU10N0020Amp305f141B059AllRough/input/
+Forward basic case
+
+2021-03-18 08:04:40
+../results/Iso3kmlowU10N0005Amp305f141B059AllRough/input/
+Forward basic case
+
+2021-03-17 09:33:21
+../results/Iso3kmlowU10Amp450f141B059AllRough/input/
+Forward basic case
+
+2021-03-17 08:50:53
+../results/Iso3kmlowU10Amp150f141B059AllRough/input/
+Forward basic case
+
+2021-03-16 18:29:31
+../results/Iso3kmlowU15Amp305f141B059AllRough/input/
+Forward basic case
+
+2021-03-16 18:24:41
+../results/Iso3kmlowU5Amp305f141B059AllRough/input/
+Forward basic case
+
+2021-03-15 22:04:34
+../results/Iso3kmlowU10Amp305f141B059AllRough/input/
+Forward basic case
+
+2021-03-15 22:00:23
+../results/Iso3kmlowU10Amp305f141B059AllRough/input/
+Forward basic case
+
+2021-03-15 11:31:09
+../results/Iso3kmlowU10Amp305f141B000AllRough600BlockFix/input/
+Forward basic case
+
+2021-03-13 10:57:40
+../results/Iso3kmlowU10Amp305f141B000AllRough600Block/input/
+Forward basic case
+
+2021-03-12 16:57:47
+../results/Iso3kmlowU10Amp305f141B059AllRough600Block/input/
+Forward basic case
+
+2021-03-12 12:21:00
+../results/Iso3kmlowU10Amp305f141B059AllRough600Block/input/
+Forward basic case
+
+2021-03-11 22:53:01
+../results/Iso3kmlowU10Amp305f141B059AllRough600NoPkg/input/
+Forward basic case
+
+2021-03-11 19:02:15
+../results/Iso3kmlowU10Amp305f141B059AllRough600ConsNsq/input/
+Forward basic case
+
+2021-03-11 18:56:22
+../results/Iso3kmlowU10Amp305f141B059AllRough600ConsNsq/input/
+Forward basic case
+
+2021-03-11 18:39:57
+../results/Iso3kmlowU10Amp305f141B059AllRough600Exp/input/
+Forward basic case
+
+2021-03-11 18:33:31
+../results/Iso3kmlowU10Amp305f141B059AllRough600Block/input/
+Forward basic case
+
+2021-03-11 18:26:21
+../results/Iso3kmlowU10Amp305f141B059AllRough600Single/input/
+Forward basic case
+
+2021-03-11 09:24:03
+../results/Iso3kmlowU10Amp305f141B059AllRough600Single/input/
+Forward basic case
+
+2021-03-11 09:20:58
+../results/Iso3kmlowU10Amp305f141B059AllRough600Single/input/
+Forward basic case
+
+2021-03-11 09:12:04
+../results/Iso3kmlowU10Amp305f141B059AllRough600Block/input/
+Forward basic case
+
+2021-03-11 09:01:23
+../results/Iso3kmlowU10Amp305f141B059AllRough600Exp/input/
+Forward basic case
+
+2021-03-10 13:23:36
+../results/Iso3kmlowU10Amp305f141B059AllRough600Param/input/
+Forward basic case
+
+2021-03-10 13:20:18
+../results/Iso3kmlowU10Amp305f141B059AllRough600Param/input/
+Forward basic case
+
+2021-03-10 13:16:48
+../results/Iso3kmlowU10Amp305f141B059AllRough600/input/
+Forward basic case
+
+2021-03-10 07:22:10
+../results/Iso3kmlowU10Amp305f141B059AllRoughParam/input/
+Forward basic case
+
+2021-03-09 10:55:11
+../results/Iso3kmlowU10Amp305f141B059AllRough100/input/
+Forward basic case
+
+2021-03-09 10:50:24
+../results/Iso3kmlowU10Amp305f141B059AllRough/input/
+Forward basic case
+
+2021-03-09 09:08:20
+../results/Iso3kmlowU10Amp305f141B059MixNoSpreadPatch100/input/
+Forward basic case
+
+2021-03-08 22:50:34
+../results/Iso3kmlowU10Amp305f141B059MixRoughPatch100/input/
+Forward basic case
+
+2021-03-08 18:34:16
+../results/Iso3kmlowU10Amp305f141B059BooRoughPatch100/input/
+Forward basic case
+
+2021-03-08 18:32:10
+../results/Iso3kmlowU10Amp305f141B059BooRoughPatch100/input/
+Forward basic case
+
+2021-03-05 15:51:40
+../results/Iso3kmlowU10Amp305f141B059MixRoughPatch100/input/
+Forward basic case
+
+2021-03-05 14:40:24
+../results/Iso3kmlowU10Amp305f141B059MixRoughPatch100/input/
+Forward basic case
+
+2021-03-05 14:27:35
+../results/Iso3kmlowU10Amp305f141B059MixRoughPatch100/input/
+Forward basic case
+
+2021-03-05 11:30:11
+../results/Iso3kmlowU10Amp305f141B059MixRoughPatch100/input/
+Forward basic case
+
+2021-03-04 19:09:11
+../results/Iso3kmlowU10Amp305f141B059KhRoughPatch100/input/
+Forward basic case
+
+2021-03-04 15:47:22
+../results/Iso3kmlowU10Amp305f141B059KhRoughPatch100/input/
+Forward basic case
+
+2021-03-04 14:03:54
+../results/Iso3kmlowU10Amp305f141B059KhRoughPatch100/input/
+Forward basic case
+
+2021-03-03 22:17:34
+../results/Iso3kmlowU10Amp305f141B059KhRoughPatch100/input/
+Forward basic case
+
+2021-03-03 17:56:32
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-03-03 17:53:53
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-03-03 17:46:06
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-03-03 16:38:45
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-03-03 15:54:32
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-03-03 15:01:17
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-03-03 04:37:12
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-03-03 02:58:35
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-03-03 02:53:20
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-03-03 01:24:04
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 21:00:07
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 18:05:42
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 18:01:09
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 17:59:43
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 16:59:20
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 16:58:40
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 16:56:51
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 16:55:44
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 16:54:48
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 16:13:01
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 15:21:45
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 01:58:14
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 00:59:15
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 00:57:13
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-02-28 00:50:43
+../results/Iso3kmlowU10Amp305f141B059RoughPatch100/input/
+Forward basic case
+
+2021-01-25 02:53:15
+../results/Iso3kmlowU10Amp305f141B059Patch100/input/
+Forward basic case
+
+2021-01-25 02:51:04
+../results/Iso3kmlowU10Amp305f141B059Patch20/input/
+Forward basic case
+
+2021-01-25 02:49:33
+../results/Iso3kmlowU10Amp305f141B059Patch20/input/
+Forward basic case
+
+2021-01-25 02:17:40
+../results/Iso3kmlowU10Amp305f141B059Patch20/input/
+Forward basic case
+
+2021-01-25 02:16:43
+../results/Iso3kmlowU10Amp305f141B059Patch20/input/
+Forward basic case
+
+2021-01-25 02:14:47
+../results/Iso3kmlowU10Amp305f141B059Patch20/input/
+Forward basic case
+
+2021-01-25 02:12:12
+../results/Iso3kmlowU10Amp305f141B059Patch20/input/
+Forward basic case
+
+2021-01-15 05:19:04
+../results/Iso3kmlowU10Amp305f141B059Patch/input/
+Forward basic case
+
+2021-01-15 05:02:27
+../results/Iso3kmlowU10Amp305f141B059Patch/input/
+Forward basic case
+
+2021-01-15 03:54:42
+../results/Iso3kmlowU10Amp305f141B059Patch/input/
+Forward basic case
+
+2021-01-14 18:35:11
+../results/Iso3kmlowU10Amp305f141B059PatchSu/input/
+Forward basic case
+
+2021-01-13 19:11:17
+../results/Iso3kmlowU10Amp305f141B000Patch/input/
+Forward basic case
+
+2021-01-13 19:10:37
+../results/Iso3kmlowU10Amp305f141B059Patch/input/
+Forward basic case
+
+2021-01-13 19:10:13
+../results/Iso3kmlowU10Amp305f141B059Patch/input/
+Forward basic case
+
+2021-01-13 19:09:46
+../results/Iso3kmlowU10Amp305f141B059Patch/input/
+Forward basic case
+
+2021-01-13 19:06:44
+../results/Iso3kmlowU10Amp305f141B059Patch/input/
+Forward basic case
+
+2021-01-13 19:00:52
+../results/Iso3kmlowU10Amp305f141B059Patch/input/
+Forward basic case
+
+2021-01-13 18:58:13
+../results/Iso3kmlowU10Amp305f141B059Patch/input/
+Forward basic case
+
+2021-01-13 00:39:00
+../results/Iso3kmlowU10Amp305f141B059Base/input/
+Forward basic case
+
+2021-01-13 00:38:49
+../results/Iso3kmlowU10Amp305f141B000Base/input/
+Forward basic case
+
+2021-01-12 23:46:44
+../results/Iso3kmlowU10Amp305f141B000Base/input/
+Forward basic case
+
+2021-01-12 23:46:35
+../results/Iso3kmlowU10Amp305f141B059Base/input/
+Forward basic case
+
+2021-01-12 23:39:10
+../results/Iso3kmlowU10Amp305f141B059Base/input/
+Forward basic case
+
+2021-01-12 23:38:41
+../results/Iso3kmlowU10Amp305f141B000Base/input/
+Forward basic case
+
+2021-01-11 17:44:20
+../results/Iso1kmlowU10Amp305f141B059Wall/input/
+Forward basic case
+
+2021-01-11 17:42:57
+../results/Iso1kmlowU10Amp305f141B059Base/input/
+Forward basic case
+
+2021-01-10 04:13:36
+../results/Iso1kmlowU10Amp305f141B059Base/input/
+Forward basic case
+
+2021-01-10 04:13:08
+../results/Iso1kmlowU10Amp305f141B000Base/input/
+Forward basic case
+
+2021-01-10 04:12:01
+../results/Iso1kmlowU10Amp305f141B000Wall/input/
+Forward basic case
+
+2021-01-09 23:42:50
+../results/Iso1kmlowU10Amp305f141B059Wall/input/
+Forward basic case
+
+2021-01-09 23:40:12
+../results/Iso1kmlowU10Amp305f141B059Wall/input/
+Forward basic case
+
+2021-01-09 23:38:12
+../results/Iso1kmlowU10Amp305f141B059Wall/input/
+Forward basic case
+
+2021-01-09 23:18:29
+../results/Iso1kmlowU10Amp305f141B059Wall/input/
+Forward basic case
+
+2021-01-09 23:13:03
+../results/Iso1kmlowU10Amp305f141B059Wall/input/
+Forward basic case
+
+2021-01-08 20:38:37
+../results/Iso1kmlowU10Amp305f141B059Wall/input/
+Forward basic case
+
+2021-01-08 20:34:53
+../results/Iso1kmlowU10Amp305f141B000Wall/input/
+Forward basic case
+
+2021-01-08 20:19:12
+../results/Iso1kmlowU10Amp305f141B000Base/input/
+Forward basic case
+
+2021-01-08 20:14:51
+../results/Iso1kmlowU10Amp305f141B059Base/input/
+Forward basic case
+
+2021-01-08 18:50:35
+../results/Iso1kmlowU10Amp305f141B059Base/input/
+Forward basic case
+
+2021-01-07 16:59:57
+../results/Iso1kmlowU-10Amp305f141Base/input/
+Forward basic case
+
+2021-01-07 16:58:39
+../results/Iso1kmlowU10Amp305f141Base/input/
+Forward basic case
+
+2021-01-07 16:33:23
+../results/Iso1kmlowU10Amp305f141Base/input/
+Forward basic case
+
+2021-01-07 16:13:21
+../results/Iso1kmlowU10Amp305f141Base/input/
+Forward basic case
+
+2021-01-07 15:56:02
+../results/Iso1kmlowU-10Amp305f141Base/input/
+Forward basic case
+
+2021-01-07 15:53:58
+../results/Iso1kmlowU10Amp305f141Base/input/
+Forward basic case
+
+2020-10-23 00:46:24
+../results/LW1kmlowU10Amp305f141/input/
+Boo
+
+2020-10-23 00:34:01
+../results/LW1kmlowU10Amp305f141/input/
+Boo
+
+2020-10-23 00:18:20
+../results/LW1kmlowU10Amp305f141/input/
+Boo
+

@@ -231,16 +231,28 @@ if True:
   ax.set_ylim([2000, 0])
   fig.savefig(outdir+'/figs/TO.pdf')
 
-  t = np.arange(0, 1240*36, 1240)
+  time = np.arange(0, 1240*36, 1240)
   om = 2*np.pi/3600/12.4
-  uwn = u0 * np.sin(om*t)
+  uw = u0 * np.sin(om*time)
+  uwn = np.zeros((np.shape(time)[0],nz,ny))
+  print(np.shape(uwn))
+  for j in range(0,ny):
+    for i in range(0,nz):
+      uwn[:,i,j]=uw
   with open(indir+"/Uw.bin","wb") as f:
     uwn.tofile(f)
+
+  t = np.zeros((np.shape(time)[0],nz,ny))
+  for j in range(0,ny):
+    for i in range(0,nz):
+      for k in range(0,np.shape(time)[0]):
+        t[k,i,j]=T0[i]
+
   with open(indir+"/Tw.bin","wb") as f:
-    T0.tofile(f)
+    t.tofile(f)
 
   fig, ax = plt.subplots()
-  ax.plot(t, uwn)
+  ax.plot(time, uwn[:, 0, 0])
   fig.savefig(outdir+'/figs/uwn.pdf')
 
 

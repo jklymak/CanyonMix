@@ -6,7 +6,7 @@
  &PARM01
  debuglevel=3,
  tRefFile='../indata/TRef.bin',
- sRef= 400*35.,
+ sRef= 200*35.,
  viscAz=1.E-5,
  viscAh=1.E-5,
  no_slip_sides=.FALSE.,
@@ -15,7 +15,7 @@
  diffKzT=1.E-5,
  implicitDiffusion=.TRUE.,
  implicitViscosity=.TRUE.,
- f0=1.E-4,
+ f0=0.E-4,
  beta=0.E-11,
  eosType='LINEAR',
  tAlpha=2.E-4,
@@ -24,7 +24,7 @@
  implicitFreeSurface=.FALSE.,
  exactConserv=.FALSE.,
  rigidLid=.TRUE.,
- bottomDragQuadratic=1.0E-4,
+ bottomDragQuadratic=0.0E-4,
  bottomDragLinear=0.0,
  nonHydrostatic=.FALSE.,
  hFacMin=1.,
@@ -56,18 +56,17 @@
 # Time stepping parameters
  &PARM03
  startTime=0,
- endTime=259380,
+ endTime=446_400,
  deltaT=6.2,
  abEps=0.1,
 # 3d:
- pChkptFreq=259200.0,
+ pChkptFreq=223_200.0,
  chkptFreq=0.,
  dumpFreq=0,
  dumpInitAndLast=.FALSE.
- monitorFreq=3600.,
+ monitorFreq=3720.,
  monitorSelect=2,
  rwSuffixType=2,
- monitorFreq=24.8,
  # 1860
  # Forcing for boundary condition files
  periodicExternalForcing=.TRUE.,
@@ -88,7 +87,7 @@
 # Input datasets
  &PARM05
 # hydrogThetaFile='../indata/T.init',
-uVelInitFile='../indata/Uinit.bin',
+# uVelInitFile='../indata/Uinit.bin',
 # vVelInitFile='../indata/V.init',
 # pSurfInitFile='../indata/Eta.init',
  bathyFile='../indata/topog.bin',

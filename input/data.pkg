@@ -1,11 +1,9 @@
 # Packages
  &PACKAGES
- useOBCS=.FALSE.,
  useKL10=.TRUE.,
  useKPP=.FALSE.,
  useDIAGNOSTICS=.TRUE.,
  useMNC=.TRUE.,
- useRBCS=.FALSE.,
- useBTFORCING=.TRUE.,
- useVar_Bot_Drag=.TRUE.,
+ useOBCS=.TRUE.,
+ #useBTFORCING=.TRUE.,
  /

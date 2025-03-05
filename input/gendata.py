@@ -109,7 +109,7 @@ if True:
       shutil.copy('dataF', outdir+'/data')
       shutil.copy('eedata', outdir)
       shutil.copy('data.kl10', outdir)
-      shutil.copy('data.btforcing', outdir)
+      # shutil.copy('data.btforcing', outdir)
       try:
         shutil.copy('data.kpp', outdir)
       except:

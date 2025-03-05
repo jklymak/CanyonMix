@@ -17,6 +17,12 @@
  fields(1:2,2) = 'ETAN    ',
                  'PHIBOT  ',
 #
+ filename(3) = 'dissipation',
+ frequency(3) = 1860,
+ timePhase(3) = 930,
+ fields(1:2,3) = 'KLeps   ',
+                 'KLviscAr',
+#
 # frequency(3)  = -3600,
 # timePhase(3)  = 777600,
 # fields(1:5,3) = 'UVEL    ',

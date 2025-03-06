@@ -19,10 +19,10 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-  runname = 'StraightSlopeUpsidedownStrat002'
-  comments = "55 km wide slope (subcritical?).  Exponential downwards stratification; slope has a break at 1700 m as well"
+  runname = 'StraightSlopeEpxStrat003'
+  comments = "55 km wide slope (subcritical?). Expo stratification, no shelf etc. Stronger forcing.  "
 
-  u0 = 0.05
+  u0 = 0.5
   N0 = 1e-3
   f0 = 1.410e-4
   f0 = 0.0
@@ -182,11 +182,11 @@ if True:
   # get the topo:
   d=np.zeros((ny,nx))
   H = 2000
-  d[0, ] = (-np.max(x)+x+20_000)*H / 50_000
+  d[0, ] = (-np.max(x)+x)*H / 50_000
 
-  d[0, d[0, :]<-1700] = -H
-  d[0, d[0, :]>-200] = -200
-  #d[0, -1] = 0
+  #  d[0, d[0, :]<-1700] = -H
+  #  d[0, d[0, :]>-200] = -200
+  d[0, -1] = 0
 
   with open(indir+"/topog.bin", "wb") as f:
     d.tofile(f)
@@ -222,7 +222,7 @@ if True:
   # temperature goes on the zc grid:
   g=9.8
   alpha = 2e-4
-  T0 = 28+np.cumsum(N0**2/g/alpha*(-dz)*np.exp((z-H)/500) )
+  T0 = 28+np.cumsum(N0**2/g/alpha*(-dz)*np.exp((-z)/500) )
 
   with open(indir+"/TRef.bin", "wb") as f:
     T0.tofile(f)

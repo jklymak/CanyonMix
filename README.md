@@ -9,8 +9,15 @@ The version I'll use is the `varbd_bt` branch of my own fork.  https://github.co
 
 `../../MITgcm/tools/genmake2 -optfile=../build_options/onyx -mods=../code/ -rootdir=../../MITgcm -mpi`
 
+
+
 ### Todo:
-- U = -0.1
+
+Internal tide forcing with a shelf with passthrough is OK (`StraightSlopeExpStrat002`), but definitely concentrated near break.   If I don't have a shelf, then the internal tide is quite weak because the velocity isn't very large (standing wave)
+
+Thats OK, but if I want to invert the stratification, then the forcing is still very focused at the break.
+
+Maybe just have straight
 
 ### To run:
 

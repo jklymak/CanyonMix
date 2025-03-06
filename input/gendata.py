@@ -272,6 +272,7 @@ if True:
   T = np.zeros((nz, ny, nx))
   with open(indir+"/Uinit.bin", "wb") as f:
     T.tofile(f)
+  T = T + 35
   with open(indir+"/Sinit.bin", "wb") as f:
     T.tofile(f)
 

@@ -19,8 +19,8 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-  runname = 'StraightSlopeUpsidedownStrat001'
-  comments = "55 km wide slope (subcritical?).  Exponential downwards stratification"
+  runname = 'StraightSlopeUpsidedownStrat002'
+  comments = "55 km wide slope (subcritical?).  Exponential downwards stratification; slope has a break at 1700 m as well"
 
   u0 = 0.05
   N0 = 1e-3
@@ -184,7 +184,7 @@ if True:
   H = 2000
   d[0, ] = (-np.max(x)+x+20_000)*H / 50_000
 
-  d[0, d[0, :]<-H] = -H
+  d[0, d[0, :]<-1700] = -H
   d[0, d[0, :]>-200] = -200
   #d[0, -1] = 0
 

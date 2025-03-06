@@ -223,6 +223,8 @@ if True:
   g=9.8
   alpha = 2e-4
   T0 = 28+np.cumsum(N0**2/g/alpha*(-dz)*np.exp((-z)/500) )
+  # surface mixed layer:
+  T0[0:10] = T0[10]
 
   with open(indir+"/TRef.bin", "wb") as f:
     T0.tofile(f)

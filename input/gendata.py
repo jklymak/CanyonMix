@@ -19,7 +19,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-  runname = 'StraightSlopeEpxStrat003'
+  runname = 'StraightSlopeExpStrat003'
   comments = "55 km wide slope (subcritical?). Expo stratification, no shelf etc. Stronger forcing.  "
 
   u0 = 0.5

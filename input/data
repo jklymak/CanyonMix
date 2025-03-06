@@ -23,7 +23,7 @@
  gravity=9.81,
  implicitFreeSurface=.FALSE.,
  exactConserv=.FALSE.,
- rigidLid=.TRUE.,
+ rigidLid=.FALSE.,
  bottomDragQuadratic=0.0E-4,
  bottomDragLinear=0.0,
  nonHydrostatic=.FALSE.,

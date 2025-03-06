@@ -19,8 +19,8 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-  runname = 'StraightSlopeExpStrat002'
-  comments = "55 km wide slope (subcritical?)"
+  runname = 'StraightSlopeUpsidedownStrat001'
+  comments = "55 km wide slope (subcritical?).  Exponential downwards stratification"
 
   u0 = 0.05
   N0 = 1e-3
@@ -222,7 +222,7 @@ if True:
   # temperature goes on the zc grid:
   g=9.8
   alpha = 2e-4
-  T0 = 28+np.cumsum(N0**2/g/alpha*(-dz)*np.exp(-z/500) )
+  T0 = 28+np.cumsum(N0**2/g/alpha*(-dz)*np.exp((z-H)/500) )
 
   with open(indir+"/TRef.bin", "wb") as f:
     T0.tofile(f)

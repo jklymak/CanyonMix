@@ -185,7 +185,8 @@ if True:
   d[0, ] = (-np.max(x)+x)*H / 50_000
 
   #  d[0, d[0, :]<-1700] = -H
-  #  d[0, d[0, :]>-200] = -200
+
+  d[0, d[0, :]>-50] = -50
   d[0, -1] = 0
 
   with open(indir+"/topog.bin", "wb") as f:
@@ -224,7 +225,7 @@ if True:
   alpha = 2e-4
   T0 = 28+np.cumsum(N0**2/g/alpha*(-dz)*np.exp((-z)/500) )
   # surface mixed layer:
-  T0[0:10] = T0[10]
+  # T0[0:10] = T0[10]
 
   with open(indir+"/TRef.bin", "wb") as f:
     T0.tofile(f)

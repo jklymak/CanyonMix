@@ -186,7 +186,7 @@ if True:
 
   #  d[0, d[0, :]<-1700] = -H
 
-  d[0, d[0, :]>-50] = -50
+  #d[0, d[0, :]>-50] = -50
   d[0, -1] = 0
 
   with open(indir+"/topog.bin", "wb") as f:

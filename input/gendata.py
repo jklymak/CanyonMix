@@ -22,7 +22,7 @@ if True:
   runname = 'StraightSlopeExpStrat003'
   comments = "55 km wide slope (subcritical?). Expo stratification, no shelf etc. Stronger forcing.  "
 
-  u0 = 0.2
+  u0 = 0.3
   N0 = 1e-3
   f0 = 1.410e-4
   f0 = 0.0

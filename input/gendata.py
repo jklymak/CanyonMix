@@ -265,6 +265,19 @@ if True:
   ax.plot(time, uwn[:, 0, 0])
   fig.savefig(outdir+'/figs/uwn.pdf')
 
+  T = np.zeros((nz, ny, nx)) + T0[:, np.newaxis, np.newaxis]
+
+  with open(indir+"/Tinit.bin", "wb") as f:
+    T.tofile(f)
+  T = np.zeros((nz, ny, nx))
+  with open(indir+"/Uinit.bin", "wb") as f:
+    T.tofile(f)
+  with open(indir+"/Sinit.bin", "wb") as f:
+    T.tofile(f)
+
+  T = np.zeros((ny, nx))
+  with open(indir+"/Etainit.bin", "wb") as f:
+    T.tofile(f)
 
   _log.info('Writing info to README')
   ############ Save to README

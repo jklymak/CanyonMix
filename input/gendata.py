@@ -19,8 +19,8 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-  runname = 'StraightSlopeExpStrat004'
-  comments = "55 km wide slope (subcritical?). Expo stratification upside down, no shelf etc. No forcing 1e-2 diff/visc"
+  runname = 'StraightSlopeExpStrat004K1'
+  comments = "55 km wide slope (subcritical?). Expo stratification upside down, no shelf etc. No forcing 1e0 diff/visc"
 
   u0 = 0.0
   N0 = 1e-3

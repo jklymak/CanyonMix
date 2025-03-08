@@ -19,10 +19,10 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-  runname = 'StraightSlopeUpsidedownStrat003'
-  comments = "55 km wide slope (subcritical?). Expo stratification upside down, no shelf etc. Stronger forcing.  "
+  runname = 'StraightSlopeExpStrat004'
+  comments = "55 km wide slope (subcritical?). Expo stratification upside down, no shelf etc. No forcing 1e-2 diff/visc"
 
-  u0 = 0.3
+  u0 = 0.0
   N0 = 1e-3
   f0 = 1.410e-4
   f0 = 0.0
@@ -223,7 +223,7 @@ if True:
   # temperature goes on the zc grid:
   g=9.8
   alpha = 2e-4
-  T0 = 28+np.cumsum(N0**2/g/alpha*(-dz)*np.exp((z-H)/500) )
+  T0 = 28+np.cumsum(N0**2/g/alpha*(-dz)*np.exp((-z)/500) )
   # surface mixed layer:
   # T0[0:10] = T0[10]
 

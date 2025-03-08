@@ -19,14 +19,15 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-  runname = 'StraightSlopeExpStrat004K1'
-  comments = "55 km wide slope (subcritical?). Expo stratification upside down, no shelf etc. No forcing 1e0 diff/visc"
+  runname = 'StraightSlopeExpStrat004K01'
 
   u0 = 0.0
   N0 = 1e-3
   f0 = 1.410e-4
   f0 = 0.0
   geo_beta = 0.0
+  K = 0.01
+  comments = f"55 km wide slope (subcritical?). Expo stratification upside down, no shelf etc. No forcing {K} diff/visc"
 
   outdir0='../results/'+runname+'/'
 
@@ -34,6 +35,8 @@ if True:
   shutil.copy('data', 'dataF')
   replace_data('dataF', 'f0', '%1.3e'%f0)
   replace_data('dataF', 'beta', '%1.3e'%geo_beta)
+  for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT']:
+    replace_data('dataF', td, '%1.3e'%K)
 
   # model size
   nx = 8 * 120

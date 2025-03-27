@@ -2,6 +2,7 @@
 
 &diagnostics_list
 # 3D variables.
+ filename(1)   = 'spinup',
  frequency(1)  = -1860,
  timePhase(1)  = 0,
  fields(1:7,1) = 'UVEL    ',
@@ -12,7 +13,6 @@
                  'TRAC01  ',
                  'TRAC02  ',
                  'TRAC03  ',
- filename(1)   = 'spinup'
 #
  filename(2)   = 'spinup2d'
  frequency(2)  = -1860,
@@ -26,20 +26,19 @@
  fields(1:2,3) = 'KLeps   ',
                  'KLviscAr',
 # tidal average
+ filename(4)   = 'tideave',
  frequency(4)  = 44640,
  timePhase(4)  = 0,
  fields(1:10,4) = 'UVEL    ',
-                 'VVEL    ',
-                 'WVEL    ',
-                 'THETA   ',
-                 'PHIHYD  ',
-                 'TRAC01  ',
-                 'TRAC02  ',
-                 'TRAC03  ',
-                 'Kleps   ',
-                 'KLviscAr',
- filename(4)   = 'tideave'
-
+                'VVEL    ',
+                'WVEL    ',
+                'THETA   ',
+                'PHIHYD  ',
+                'TRAC01  ',
+                'TRAC02  ',
+                'TRAC03  ',
+                'Kleps   ',
+                'KLviscAr',
 #
 #
 # frequency(3)  = -3600,

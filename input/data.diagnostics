@@ -5,7 +5,7 @@
  filename(1)   = 'spinup',
  frequency(1)  = -1860,
  timePhase(1)  = 0,
- fields(1:7,1) = 'UVEL    ',
+ fields(1:8,1) = 'UVEL    ',
                  'VVEL    ',
                  'WVEL    ',
                  'THETA   ',
@@ -25,6 +25,20 @@
  timePhase(3) = 930,
  fields(1:2,3) = 'KLeps   ',
                  'KLviscAr',
+ filename(4)   = 'tideave',
+ frequency(4)  = 44640,
+ timePhase(4)  = 0,
+ fields(1:10,4) = 'UVEL    ',
+                'VVEL    ',
+                'WVEL    ',
+                'THETA   ',
+                'PHIHYD  ',
+                'TRAC01  ',
+                'TRAC02  ',
+                'TRAC03  ',
+                'Kleps   ',
+                'KLviscAr',
+
 # tidal average
 #
 #

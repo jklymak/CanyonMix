@@ -319,7 +319,7 @@ if True:
         ax.pcolormesh(S[:, 0, :], rasterized=True)
         fig.savefig(outdir + f"/figs/Trac{name}.png")
 
-    replace_data(outdir + "/data.ptracers", "PTRACERS_Iter0", f"{int(tracert0/deltaT)}")
+    # replace_data(outdir + "/data.ptracers", "PTRACERS_Iter0", f"{int(tracert0/deltaT)}")
 
     _log.info("Writing info to README")
     ############ Save to README

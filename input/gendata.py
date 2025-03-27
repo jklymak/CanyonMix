@@ -21,7 +21,6 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runname = "StraightSlopeExpStrat003"
 
     u0 = 0.3
     N0 = 1e-3
@@ -39,7 +38,7 @@ if True:
 
     runname = f"StraightSlope{strattype}N{N0*1e4:.0f}alpha{alpha*100:.0f}u0{u0*1e2:.0f}"
     outdir0 = "../results/" + runname + "/"
-    comments = f"alpha = {alpha}. dhdx={dhdx} {strattype} stratification, no shelf etc. u_0={u0}. N_0={N0}"
+    comments = f"alpha = {alpha}. dhdx={dhdx} {strattype} stratification, no shelf etc. u_0={u0}. N_0={N0}.  Three tracers"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 
@@ -293,6 +292,23 @@ if True:
     T = np.zeros((ny, nx))
     with open(indir + "/Etainit.bin", "wb") as f:
         T.tofile(f)
+
+    # make the tracer files:
+    # Put a tracer blob at -500, -1000, an -1800 m.
+
+    S = T * 0 + 35
+    print(np.shape(d))
+
+    indi = int(np.round(np.interp(-1800, d[0, :], np.arange(len(d[0, :])))))
+    print(indi)
+    indk = np.where(z> -1800)[0][0]
+    print(indk)
+    for i in range(50):
+        for j in range(60):
+            if indk-j > 0:
+                S[indk-j, ind+i] = 400 * np.exp(-(j)**2/400) * np.exp(-(i-25)**2/400)
+
+
 
     _log.info("Writing info to README")
     ############ Save to README

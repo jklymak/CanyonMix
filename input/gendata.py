@@ -249,7 +249,7 @@ if True:
     fig.savefig(outdir + "/figs/TO.pdf")
 
     time = np.arange(0, 1240 * 36, 1240)
-    om = 2 * np.pi / 3600 / 12.4
+
     uw = u0 * np.sin(om * time)
     uwn = np.zeros((np.shape(time)[0], nz, ny))
     print(np.shape(uwn))
@@ -258,11 +258,11 @@ if True:
             uwn[:, i, j] = uw
     with open(indir + "/Uw.bin", "wb") as f:
         uwn.tofile(f)
-    for j in range(0, ny):
-        for i in range(0, nz):
-            uwn[:, i, j] = uw * 10.0
-    with open(indir + "/Ue.bin", "wb") as f:
-        uwn.tofile(f)
+#    for j in range(0, ny):
+#        for i in range(0, nz):
+#            uwn[:, i, j] = uw
+#    with open(indir + "/Ue.bin", "wb") as f:
+#        uwn.tofile(f)
 
     t = np.zeros((np.shape(time)[0], nz, ny))
     for j in range(0, ny):
@@ -272,8 +272,8 @@ if True:
 
     with open(indir + "/Tw.bin", "wb") as f:
         t.tofile(f)
-    with open(indir + "/Te.bin", "wb") as f:
-        t.tofile(f)
+#    with open(indir + "/Te.bin", "wb") as f:
+#        t.tofile(f)
 
     fig, ax = plt.subplots()
     ax.plot(time, uwn[:, 0, 0])

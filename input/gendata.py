@@ -28,7 +28,7 @@ if True:
     geo_beta = 0.0
     strat_scale = 1e30  # m
     om = 2 * np.pi / 3600 / 12.4
-    alpha = 1.0
+    alpha = 1.5
     dhdx = alpha * om / N0
     # initialize the tracers 5 tidal periods:
     tracert0 = 12.4*3600*5

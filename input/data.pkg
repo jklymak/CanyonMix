@@ -5,4 +5,5 @@
  useDIAGNOSTICS=.TRUE.,
  useMNC=.TRUE.,
  useOBCS=.TRUE.,
+ usePTRACERS=.TRUE.,
  /

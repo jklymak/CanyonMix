@@ -26,19 +26,6 @@
  fields(1:2,3) = 'KLeps   ',
                  'KLviscAr',
 # tidal average
- filename(4)   = 'tideave',
- frequency(4)  = 44640,
- timePhase(4)  = 0,
- fields(1:10,4) = 'UVEL    ',
-                'VVEL    ',
-                'WVEL    ',
-                'THETA   ',
-                'PHIHYD  ',
-                'TRAC01  ',
-                'TRAC02  ',
-                'TRAC03  ',
-                'Kleps   ',
-                'KLviscAr',
 #
 #
 # frequency(3)  = -3600,

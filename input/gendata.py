@@ -30,6 +30,9 @@ if True:
     om = 2 * np.pi / 3600 / 12.4
     alpha = 1.0
     dhdx = alpha * om / N0
+    # initialize the tracers 5 tidal periods:
+    tracert0 = 12.4*3600*5
+    deltaT = 6.2
 
     if strat_scale > 4000:
         strattype = "const"
@@ -46,6 +49,7 @@ if True:
     shutil.copy("data", "dataF")
     replace_data("dataF", "f0", "%1.3e" % f0)
     replace_data("dataF", "beta", "%1.3e" % geo_beta)
+    replace_data("dataF", "deltaT", f"{deltaT}")
 
     # model size
     nx = 8 * 120
@@ -119,6 +123,7 @@ if True:
         shutil.copy("../build/mitgcmuv", outdir + "/../build/mitgcmuv")
         shutil.copy("../build/Makefile", outdir + "/../build/Makefile")
         shutil.copy("dataF", outdir + "/data")
+        shutil.copy("data.ptracers", outdir + "/data.ptracers")
         shutil.copy("eedata", outdir)
         shutil.copy("data.kl10", outdir)
         # shutil.copy('data.btforcing', outdir)
@@ -296,11 +301,10 @@ if True:
     # make the tracer files:
     # Put a tracer blob at -500, -1000, an -1800 m.
 
-    S = np.zeros((nz, ny, nx))
-    print(np.shape(d), np.shape(S))
 
 
     for depth, name in zip([-500, -1000, -1800], ['shallow', 'mid', 'deep']):
+        S = np.zeros((nz, ny, nx))
         indi = int(np.round(np.interp(depth, d[0, :], np.arange(len(d[0, :])))))
         indk = np.where(-z> depth)[0][-1]
         for i in range(-25, 25):
@@ -315,6 +319,7 @@ if True:
         ax.pcolormesh(S[:, 0, :], rasterized=True)
         fig.savefig(outdir + f"/figs/Trac{name}.png")
 
+    replace_data(outdir + "/data.ptracers", "PTRACERS_Iter0", f"{int(tracert0/deltaT)}")
 
     _log.info("Writing info to README")
     ############ Save to README

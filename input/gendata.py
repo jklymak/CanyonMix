@@ -234,7 +234,7 @@ if True:
     # temperature goes on the zc grid:
     g = 9.8
     alpha = 2e-4
-    T0 = 28 + np.cumsum(N0**2 / g / alpha * (-dz) * np.exp((-z) / 500))
+    T0 = 28 + np.cumsum(N0**2 / g / alpha * (-dz) * np.exp((-z) / strat_scale))
     # surface mixed layer:
     # T0[0:10] = T0[10]
 

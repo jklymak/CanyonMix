@@ -163,7 +163,6 @@ if True:
     print(dx)
     # dx = zeros(nx)+100.
     x = np.cumsum(dx)
-    x = x - x[-1] + 20_000
 
     ##### Dy ######
 
@@ -196,7 +195,7 @@ if True:
     d = np.zeros((ny, nx))
     H = 2000
     d[0,] = (-np.max(x) + x) * dhdx
-
+    d[0, d[0,:] < -H] = -H
     #  d[0, d[0, :]<-1700] = -H
 
     # d[0, d[0, :]>-50] = -50

@@ -296,18 +296,24 @@ if True:
     # make the tracer files:
     # Put a tracer blob at -500, -1000, an -1800 m.
 
-    S = T * 0 + 35
-    print(np.shape(d))
+    S = np.zeros((nz, ny, nx))
+    print(np.shape(d), np.shape(S))
 
-    indi = int(np.round(np.interp(-1800, d[0, :], np.arange(len(d[0, :])))))
-    print(indi)
-    indk = np.where(z> -1800)[0][0]
-    print(indk)
-    for i in range(50):
-        for j in range(60):
-            if indk-j > 0:
-                S[indk-j, ind+i] = 400 * np.exp(-(j)**2/400) * np.exp(-(i-25)**2/400)
 
+    for depth, name in zip([-500, -1000, -1800], ['shallow', 'mid', 'deep']):
+        indi = int(np.round(np.interp(depth, d[0, :], np.arange(len(d[0, :])))))
+        indk = np.where(-z> depth)[0][-1]
+        for i in range(-25, 25):
+            for j in range(-10, 60):
+                if indk-j > 0:
+                    S[indk-j, 0, indi+i] = 400.0 * np.exp(-(j)**2/100) * np.exp(-(i)**2/100)
+
+        with open(indir + f"/{name}.bin", "wb") as f:
+            S.tofile(f)
+
+        fig, ax = plt.subplots()
+        ax.pcolormesh(S[:, 0, :], rasterized=True)
+        fig.savefig(outdir + f"/figs/Trac{name}.png")
 
 
     _log.info("Writing info to README")

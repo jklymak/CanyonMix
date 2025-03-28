@@ -31,6 +31,7 @@ if True:
     factor = strat_scale_comp / 2000 * (1 - np.exp(-2000 / strat_scale_comp))
     if strat_scale > 1e10:
         N0 = 1e-3 * np.sqrt(factor) # to be same as stratscale 500
+    _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
     alpha = 0.6

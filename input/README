@@ -1,3 +1,7 @@
+2025-03-27 21:38:54
+../results/StraightSlopeconstN10alpha28u030/input/
+alpha = 0.28418706638488833. dhdx=0.04 const stratification, no shelf etc. u_0=0.3. N_0=0.001.  Three tracers
+
 2025-03-27 17:23:07
 ../results/StraightSlopeexpN10alpha28u030/input/
 alpha = 0.28418706638488833. dhdx=0.04 exp stratification, no shelf etc. u_0=0.3. N_0=0.001.  Three tracers

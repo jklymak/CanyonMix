@@ -27,7 +27,7 @@ if True:
     f0 = 0.0
     geo_beta = 0.0
     strat_scale = 1e30  # m
-    strat_scale = 500 # m
+    # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
     alpha = 0.6
     dhdx = alpha * om / N0

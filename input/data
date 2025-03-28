@@ -29,7 +29,7 @@
  bottomDragQuadratic=0.0E-4,
  bottomDragLinear=0.0,
  nonHydrostatic=.FALSE.,
- hFacMin=1.,
+ hFacMin=0.1,
  tempAdvScheme=77,
  saltAdvScheme=77,
 # implicSurfPress=0.5,

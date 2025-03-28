@@ -27,9 +27,14 @@ if True:
     f0 = 0.0
     geo_beta = 0.0
     strat_scale = 1e30  # m
+    strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
     alpha = 0.6
     dhdx = alpha * om / N0
+    # define the other way:
+    dhdx = 2000 / 50_000
+    alpha = dhdx * N0 / om
+
     # initialize the tracers 5 tidal periods:
     tracert0 = 12.4*3600*5
     deltaT = 6.2
@@ -164,7 +169,6 @@ if True:
     dx = np.zeros(nx) + 100.0
     for i in range(35, -1, -1):
         dx[i] = dx[i + 1] * 1.12
-    print(dx)
     # dx = zeros(nx)+100.
     x = np.cumsum(dx)
 

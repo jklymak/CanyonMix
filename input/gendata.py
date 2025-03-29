@@ -34,11 +34,11 @@ if True:
     _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
-    alpha = 0.6
+    alpha = 0.7
     dhdx = alpha * om / N0
     # define the other way:
-    dhdx = 2000 / 50_000
-    alpha = dhdx * N0 / om
+    #dhdx = 2000 / 50_000
+    #alpha = dhdx * N0 / om
 
 
     # initialize the tracers 5 tidal periods:

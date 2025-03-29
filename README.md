@@ -6,6 +6,8 @@ The version I'll use is the `varbd_bt` branch of my own fork.  https://github.co
 
 ## Mixing on a slope...
 
+- running smooth versions with 0.6 m/s forcing.  Need to check alpha.  Try sub and supercritical at the same alpha.  Too strong stratification and overturns cannot develop.  Rough seafloor leads to more turnulence (a lot), so can play with hfac.  hfac=1 is much more turbulence than hfac=0.1.
+
 
 `../../MITgcm/tools/genmake2 -optfile=../build_options/onyx -mods=../code/ -rootdir=../../MITgcm -mpi`
 
@@ -30,17 +32,6 @@ Maybe just have straight
   - `input` is where most model setup occurs.
   - `python` is where most processing occurs.
 
-## Vagaries
-
-   - Need `miniconda3` on the path!
-
-## To compile on onyx
-
-  - `module load cray-mpich`
-  - `cd build/`
-  - `../../MITgcm/tools/genmake2 -optfile=../build_options/onyx -mods=../code/ -rootdir=../../MITgcm -mpi`
-  - `make depend`.  This will have some errors near the end about not being able to find source files for `module netcdf`.  This error is annoying but doesn't affect compile.
-  - `make`
 
 ## To run
 

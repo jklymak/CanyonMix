@@ -24,7 +24,7 @@ _log = logging.getLogger(__name__)
 
 if True:
 
-    u0 = 0.9
+    u0 = 0.6
     N0 = 1e-3
     f0 = 0.0
     geo_beta = 0.0
@@ -37,7 +37,7 @@ if True:
     _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
-    alpha = 0.7
+    alpha = 1.0
     dzdxIW = np.sqrt((om**2 - f0**2) / (N0**2 - om**2))
     dhdx = alpha * dzdxIW
     # define the other way:

@@ -19,6 +19,8 @@ logging.basicConfig(level=logging.INFO)
 
 _log = logging.getLogger(__name__)
 
+# IW slope: dz/dx = \left( \frac{\omega^2 - f^2}{N^2-\omega^2}\right)^{1/2}
+
 
 if True:
 
@@ -36,7 +38,8 @@ if True:
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
     alpha = 0.7
-    dhdx = alpha * om / N0
+    dzdxIW = np.sqrt((om**2 - f0**2) / (N0**2 - om**2))
+    dhdx = alpha * dzdxIW
     # define the other way:
     #dhdx = 2000 / 50_000
     #alpha = dhdx * N0 / om

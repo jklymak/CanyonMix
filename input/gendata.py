@@ -24,7 +24,7 @@ _log = logging.getLogger(__name__)
 
 if True:
 
-    u0 = 0.6
+    u0 = 0.9
     N0 = 1e-3
     f0 = 0.0
     geo_beta = 0.0

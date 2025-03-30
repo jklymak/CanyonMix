@@ -1,3 +1,7 @@
+2025-03-30 10:14:50
+../results/StraightSlopeconstN200alpha125u060/input/
+alpha = 1.25. dhdx=0.08818888673104813 const stratification, no shelf etc. u_0=0.6. N_0=0.002.  Three tracers
+
 2025-03-30 10:14:43
 ../results/StraightSlopeconstN200alpha100u060/input/
 alpha = 1.0. dhdx=0.07055110938483851 const stratification, no shelf etc. u_0=0.6. N_0=0.002.  Three tracers

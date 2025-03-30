@@ -54,7 +54,7 @@ if True:
     else:
         strattype = "exp"
 
-    runname = f"StraightSlopehfac{strattype}N{N0*1e5:.0f}alpha{alpha*100:.0f}u0{u0*1e2:.0f}"
+    runname = f"StraightSlope{strattype}N{N0*1e5:.0f}alpha{alpha*100:.0f}u0{u0*1e2:.0f}"
     outdir0 = "../results/" + runname + "/"
     comments = f"alpha = {alpha}. dhdx={dhdx} {strattype} stratification, no shelf etc. u_0={u0}. N_0={N0}.  Three tracers"
     _log.info("runname %s", runname)

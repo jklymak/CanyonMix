@@ -334,7 +334,7 @@ if True:
 
         fig, ax = plt.subplots()
         ax.pcolormesh(S[:, 0, :], rasterized=True)
-        fig.savefig(outdir + f"/figs/Trac{name}.png")
+        fig.savefig(outdir + f"/figs/Trac{name}.png", dpi=200)
 
     # replace_data(outdir + "/data.ptracers", "PTRACERS_Iter0", f"{int(tracert0/deltaT)}")
 

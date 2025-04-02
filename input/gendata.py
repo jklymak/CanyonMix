@@ -322,11 +322,11 @@ if True:
         S = np.zeros((nz, ny, nx)) + 1e-10
         indi = int(np.round(np.interp(depth, d[0, :], np.arange(len(d[0, :])))))
         indk = np.where(-z> depth)[0][-1]
-        for i in range(-3, 4):
+        for i in range(-2, 3):
             print(d[0, indi+i], z)
             indk = np.where(-z > d[0, indi+i])[0][-1]
             print(indk)
-            for j in range(-5, 1):
+            for j in range(-3, 1):
                 S[indk+j, 0, indi+i] = 400.0
 
         with open(indir + f"/{name}.bin", "wb") as f:

@@ -38,7 +38,7 @@ if True:
     _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
-    alpha = 1.25
+    alpha = 1.00
     dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
     dhdx = alpha * dzdxIW
     # define the other way:
@@ -55,7 +55,7 @@ if True:
     else:
         strattype = "exp"
 
-    runname = f"StraightSlopehfac{strattype}N{N0*1e5:.0f}alpha{alpha*100:.0f}u0{u0*1e2:.0f}"
+    runname = f"StraightSlopeTightDyehfac{strattype}N{N0*1e5:.0f}alpha{alpha*100:.0f}u0{u0*1e2:.0f}"
     outdir0 = "../results/" + runname + "/"
     comments = f"alpha = {alpha}. dhdx={dhdx} {strattype} stratification, no shelf etc. u_0={u0}. N_0={N0}.  Three tracers"
     _log.info("runname %s", runname)
@@ -322,10 +322,10 @@ if True:
         S = np.zeros((nz, ny, nx))
         indi = int(np.round(np.interp(depth, d[0, :], np.arange(len(d[0, :])))))
         indk = np.where(-z> depth)[0][-1]
-        for i in range(-25, 25):
-            for j in range(-10, 60):
-                if indk-j > 0:
-                    S[indk-j, 0, indi+i] = 400.0 * np.exp(-(j)**2/100) * np.exp(-(i)**2/100)
+        for i in range(-2, 3):
+            indk = np.where(-z> d[0, indi+i])[0][-1]
+            for j in range(indk-3, indk):
+                S[indk-j, 0, indi+i] = 400.0
 
         with open(indir + f"/{name}.bin", "wb") as f:
             S.tofile(f)

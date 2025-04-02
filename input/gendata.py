@@ -323,7 +323,8 @@ if True:
         indi = int(np.round(np.interp(depth, d[0, :], np.arange(len(d[0, :])))))
         indk = np.where(-z> depth)[0][-1]
         for i in range(-2, 3):
-            indk = np.where(-z> d[0, indi+i])[0][-1]
+            print(d[0, indi+i], z)
+            indk = np.where(-z > d[0, indi+i])[0][-1]
             for j in range(indk-3, indk):
                 S[indk-j, 0, indi+i] = 400.0
 

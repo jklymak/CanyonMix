@@ -33,12 +33,13 @@ if True:
     factor = strat_scale_comp / 2000 * (1 - np.exp(-2000 / strat_scale_comp))
     if strat_scale > 1e10:
         N0 = 1e-3 * np.sqrt(factor) # to be same as stratscale 500
-    N0 = 2e-3 / np.exp(-1) # so N0 is stratification at strat_scale depth
+    N00 = 2e-3
+    N0 = N00 / np.exp(-1) # so N0 is stratification at strat_scale depth
     _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
-    alpha = 1.25
-    dzdxIW = np.sqrt((om**2 - f0**2) / (N0**2 - om**2))
+    alpha = 0.7
+    dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
     dhdx = alpha * dzdxIW
     # define the other way:
     #dhdx = 2000 / 50_000
@@ -54,7 +55,7 @@ if True:
     else:
         strattype = "exp"
 
-    runname = f"StraightSlope{strattype}N{N0*1e5:.0f}alpha{alpha*100:.0f}u0{u0*1e2:.0f}"
+    runname = f"StraightSlopehfac{strattype}N{N0*1e5:.0f}alpha{alpha*100:.0f}u0{u0*1e2:.0f}"
     outdir0 = "../results/" + runname + "/"
     comments = f"alpha = {alpha}. dhdx={dhdx} {strattype} stratification, no shelf etc. u_0={u0}. N_0={N0}.  Three tracers"
     _log.info("runname %s", runname)

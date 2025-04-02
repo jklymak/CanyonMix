@@ -28,12 +28,12 @@ if True:
     N0 = 1e-3
     f0 = 0.0
     geo_beta = 0.0
-    strat_scale = 1e30  # m
+    strat_scale = 500  # m
     strat_scale_comp = 500
     factor = strat_scale_comp / 2000 * (1 - np.exp(-2000 / strat_scale_comp))
     if strat_scale > 1e10:
         N0 = 1e-3 * np.sqrt(factor) # to be same as stratscale 500
-    N0 = 2e-3
+    N0 = 2e-3 / np.exp(-1) # so N0 is stratification at strat_scale depth
     _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4

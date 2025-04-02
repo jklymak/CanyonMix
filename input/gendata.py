@@ -326,7 +326,7 @@ if True:
             print(d[0, indi+i], z)
             indk = np.where(-z > d[0, indi+i])[0][-1]
             print(indk)
-            for j in range(indk-3, indk):
+            for j in range(-3, 1):
                 S[indk-j, 0, indi+i] = 400.0
 
         with open(indir + f"/{name}.bin", "wb") as f:

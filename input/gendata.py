@@ -24,15 +24,11 @@ _log = logging.getLogger(__name__)
 
 if True:
 
-    u0 = 0.6
-    N0 = 1e-3
+    u0 = 0.9
     f0 = 0.0
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
-    factor = strat_scale_comp / 2000 * (1 - np.exp(-2000 / strat_scale_comp))
-    if strat_scale > 1e10:
-        N0 = 1e-3 * np.sqrt(factor) # to be same as stratscale 500
     N00 = 2e-3
     if strat_scale < 10_000:
         N0 = N00 / np.exp(-1) # so N0 is stratification at strat_scale depth
@@ -41,10 +37,10 @@ if True:
     _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
-    alpha = 1.0
+    alpha = 0.7
     dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
     dhdx = alpha * dzdxIW
-    expH = True
+    expH = False
 
     # define the other way:
     #dhdx = 2000 / 50_000
@@ -333,7 +329,7 @@ if True:
 
 
 
-    for depth, name in zip([-500, -1000, -1800], ['shallow', 'mid', 'deep']):
+    for depth, name in zip([-750, -1150, -1550], ['shallow', 'mid', 'deep']):
         S = np.zeros((nz, ny, nx)) + 1e-10
         indi = int(np.round(np.interp(depth, d[0, :], np.arange(len(d[0, :])))))
         indk = np.where(-z> depth)[0][-1]

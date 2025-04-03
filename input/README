@@ -1,3 +1,7 @@
+2025-04-03 16:25:17
+../results/StraightSlopeTightDyehfacconstN200alpha70u090/input/
+alpha = 0.7. dhdx=0.049385776569386954 const stratification, no shelf etc. u_0=0.9. N_0=0.002.  Three tracers
+
 2025-04-03 11:10:13
 ../results/StraightSlopeTightDyehfacconstN200alpha100u060expH/input/
 alpha = 1.0. dhdx=0.07055110938483851 const stratification, no shelf etc. u_0=0.6. N_0=0.002.  Three tracers

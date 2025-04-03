@@ -8,6 +8,8 @@ The version I'll use is the `varbd_bt` branch of my own fork.  https://github.co
 
 - running smooth versions with 0.6 m/s forcing.  Need to check alpha.  Try sub and supercritical at the same alpha.  Too strong stratification and overturns cannot develop.  Rough seafloor leads to more turnulence (a lot), so can play with hfac.  hfac=1 is much more turbulence than hfac=0.1.
 
+- guess is that turbulent strength leads to upwelling speeds.
+
 
 `../../MITgcm/tools/genmake2 -optfile=../build_options/onyx -mods=../code/ -rootdir=../../MITgcm -mpi`
 

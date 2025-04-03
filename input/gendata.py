@@ -28,19 +28,24 @@ if True:
     N0 = 1e-3
     f0 = 0.0
     geo_beta = 0.0
-    strat_scale = 500  # m
+    strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
     factor = strat_scale_comp / 2000 * (1 - np.exp(-2000 / strat_scale_comp))
     if strat_scale > 1e10:
         N0 = 1e-3 * np.sqrt(factor) # to be same as stratscale 500
     N00 = 2e-3
-    N0 = N00 / np.exp(-1) # so N0 is stratification at strat_scale depth
+    if strat_scale < 10_000:
+        N0 = N00 / np.exp(-1) # so N0 is stratification at strat_scale depth
+    else:
+        N0 = N00
     _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
-    alpha = 1.00
+    alpha = 1.0
     dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
     dhdx = alpha * dzdxIW
+    expH = True
+
     # define the other way:
     #dhdx = 2000 / 50_000
     #alpha = dhdx * N0 / om
@@ -54,8 +59,12 @@ if True:
         strattype = "const"
     else:
         strattype = "exp"
+    if expH:
+        seafloor = 'expH'
+    else:
+        seafloor = ''
 
-    runname = f"StraightSlopeTightDyehfac{strattype}N{N0*1e5:.0f}alpha{alpha*100:.0f}u0{u0*1e2:.0f}"
+    runname = f"StraightSlopeTightDyehfac{strattype}N{N0*1e5:.0f}alpha{alpha*100:.0f}u0{u0*1e2:.0f}{seafloor}"
     outdir0 = "../results/" + runname + "/"
     comments = f"alpha = {alpha}. dhdx={dhdx} {strattype} stratification, no shelf etc. u_0={u0}. N_0={N0}.  Three tracers"
     _log.info("runname %s", runname)
@@ -220,6 +229,12 @@ if True:
     # d[0, d[0, :]>-50] = -50
     d[0, -1] = 0
 
+    if expH:
+        for i in range(nx-2, -1, -1):
+            d[0, i] = d[0, i+1] - dx[i] * dhdx  * np.exp(1 + d[0, i+1] / 500)
+    d[0, d[0,:] < -H] = -H
+
+
     with open(indir + "/topog.bin", "wb") as f:
         d.tofile(f)
     topo = d
@@ -236,6 +251,7 @@ if True:
     #                      shading='auto', vmin=-4000, vmax=-3000)
     # fig.colorbar(pcm,ax=ax[1])
     fig.savefig(outdir + "/figs/topo.png")
+
 
     ##################
     # dz:
@@ -271,7 +287,6 @@ if True:
 
     uw = u0 * np.sin(om * time)
     uwn = np.zeros((np.shape(time)[0], nz, ny))
-    print(np.shape(uwn))
     for j in range(0, ny):
         for i in range(0, nz):
             uwn[:, i, j] = uw
@@ -323,9 +338,7 @@ if True:
         indi = int(np.round(np.interp(depth, d[0, :], np.arange(len(d[0, :])))))
         indk = np.where(-z> depth)[0][-1]
         for i in range(-2, 3):
-            print(d[0, indi+i], z)
             indk = np.where(-z > d[0, indi+i])[0][-1]
-            print(indk)
             for j in range(-3, 1):
                 S[indk+j, 0, indi+i] = 400.0
 

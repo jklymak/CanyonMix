@@ -252,6 +252,9 @@ if True:
         i = i - 1
         d[0, i] = d[0, i+1] - dx[i-1] * om / N0 * 1.5
     d[0, d[0,:] < -H] = -H
+    d[0, :] = np.convolve(d[0, :], np.ones(10) / 10, mode="same")
+    d[0, d[0,:] < -H] = -H
+    d[0, :20] = -H
 
 
     with open(indir + "/topog.bin", "wb") as f:
@@ -349,7 +352,7 @@ if True:
 
 
 
-    for depth, name in zip([-450, -850, -1250, -1650], ['TRAC1', 'TRAC2', 'TRAC3', 'TRAC4']):
+    for depth, name in zip([-450, -850, -1250, -1650], ['TRAC01', 'TRAC02', 'TRAC03', 'TRAC04']):
         S = np.zeros((nz, ny, nx)) + 1e-10
         indi = int(np.round(np.interp(depth, d[0, :], np.arange(len(d[0, :])))))
         indk = np.where(-z> depth)[0][-1]

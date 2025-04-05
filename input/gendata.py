@@ -24,7 +24,7 @@ _log = logging.getLogger(__name__)
 
 if True:
 
-    u0 = 0.9
+    u0 = 0.6
     f0 = 0.0
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
@@ -60,7 +60,7 @@ if True:
     else:
         seafloor = ''
 
-    runname = f"StraightSlopeTightDyehfac{strattype}N{N0*1e5:.0f}alpha{alpha*100:.0f}u0{u0*1e2:.0f}{seafloor}"
+    runname = f"WavySlope001{strattype}N{N0*1e5:.0f}u0{u0*1e2:.0f}"
     outdir0 = "../results/" + runname + "/"
     comments = f"alpha = {alpha}. dhdx={dhdx} {strattype} stratification, no shelf etc. u_0={u0}. N_0={N0}.  Three tracers"
     _log.info("runname %s", runname)
@@ -230,6 +230,30 @@ if True:
             d[0, i] = d[0, i+1] - dx[i] * dhdx  * np.exp(1 + d[0, i+1] / 500)
     d[0, d[0,:] < -H] = -H
 
+    # wavy:
+    d[0, :] = -H
+    i = len(x) - 1
+    d[0, i] = 0
+    while d[0, i] > -200:
+        i = i - 1
+        d[0, i] = d[0, i+1] - dx[i-1] * 200 / 15_000  # 5 km wide shelf
+    while d[0, i] > -700:
+        i = i - 1
+        d[0, i] = d[0, i+1] - dx[i-1] * om / N0 * 1.5
+    while d[0, i] > -1000:
+        i = i - 1
+        d[0, i] = d[0, i+1] - dx[i-1] * om / N0 * 0.5
+    while d[0, i] > -1500:
+        i = i - 1
+        d[0, i] = d[0, i+1] - dx[i-1] * om / N0 * 1.5
+    while d[0, i] > -1800:
+        i = i - 1
+        d[0, i] = d[0, i+1] - dx[i-1] * om / N0 * 0.5
+    while d[0, i] > -2000:
+        i = i - 1
+        d[0, i] = d[0, i+1] - dx[i-1] * om / N0 * 1.5
+    d[0, d[0,:] < -H] = -H
+
 
     with open(indir + "/topog.bin", "wb") as f:
         d.tofile(f)
@@ -242,11 +266,8 @@ if True:
     _log.info("%s %s", np.shape(x), np.shape(d))
     for i in range(0, ny, int(np.ceil(ny / 20))):
         ax[0].plot(x / 1.0e3, d[i, :].T)
-
-    # pcm=ax[1].pcolormesh(x/1.e3,y/1.e3,d,rasterized=True,
-    #                      shading='auto', vmin=-4000, vmax=-3000)
-    # fig.colorbar(pcm,ax=ax[1])
     fig.savefig(outdir + "/figs/topo.png")
+
 
 
     ##################

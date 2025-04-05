@@ -255,6 +255,7 @@ if True:
     d[0, :] = np.convolve(d[0, :], np.ones(20) / 20, mode="same")
     d[0, d[0,:] < -H] = -H
     d[0, :20] = -H
+    d[0, -1] = 0.0
 
 
     with open(indir + "/topog.bin", "wb") as f:

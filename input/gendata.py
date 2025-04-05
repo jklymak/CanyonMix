@@ -268,7 +268,7 @@ if True:
     _log.info("%s %s", np.shape(x), np.shape(d))
     for i in range(0, ny, int(np.ceil(ny / 20))):
         ax[0].plot(x / 1.0e3, d[i, :].T)
-    fig.savefig(outdir + "/figs/topo.png")
+    fig.savefig(outdir + "/figs/topo.pdf")
 
 
 

@@ -46,7 +46,6 @@ if True:
     #dhdx = 2000 / 50_000
     #alpha = dhdx * N0 / om
 
-
     # initialize the tracers 5 tidal periods:
     tracert0 = 12.4*3600*5
     deltaT = 6.2
@@ -350,7 +349,7 @@ if True:
 
 
 
-    for depth, name in zip([-750, -1150, -1550], ['shallow', 'mid', 'deep']):
+    for depth, name in zip([-450, -850, -1250, -1650], ['TRAC1', 'TRAC2', 'TRAC3', 'TRAC4']):
         S = np.zeros((nz, ny, nx)) + 1e-10
         indi = int(np.round(np.interp(depth, d[0, :], np.arange(len(d[0, :])))))
         indk = np.where(-z> depth)[0][-1]

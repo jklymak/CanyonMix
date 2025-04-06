@@ -29,7 +29,7 @@ if True:
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
-    N00 = 2e-3
+    N00 = 4e-3
     if strat_scale < 10_000:
         N0 = N00 / np.exp(-1) # so N0 is stratification at strat_scale depth
     else:

@@ -316,7 +316,7 @@ if True:
         layersst += f"{layerbounds[i]:.2f}, "
         if i % 4 == 3:
             layersst += "\n "
-    layersst += "/"
+    layersst += "\n/"
 
     with open(outdir + "/data.layers", "w") as f:
         f.write(layersst)

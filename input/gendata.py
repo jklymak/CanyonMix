@@ -308,9 +308,9 @@ if True:
     nlayers = 40
     layerbounds = np.linspace(T0.min(), T0.max(), nlayers + 1)
     layersst = "&LAYERS_PARM01\n"
-    layersst += " # temperature bins!\n"
+    layersst += "# temperature bins!\n"
     layersst += " layers_name(1) ='TH',\n"
-    layersst += " # there need to be one more of these than the number of layers\n"
+    layersst += "# there need to be one more of these than the number of layers\n"
     layersst += f" layers_bounds(1:{nlayers+1},1)= "
     for i in range(0, nlayers + 1):
         layersst += f"{layerbounds[i]:.2f}, "

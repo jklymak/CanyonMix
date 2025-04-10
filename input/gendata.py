@@ -29,7 +29,7 @@ if True:
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
-    N00 = 4e-3
+    N00 = 2e-3
     if strat_scale < 10_000:
         N0 = N00 / np.exp(-1) # so N0 is stratification at strat_scale depth
     else:
@@ -144,6 +144,7 @@ if True:
         shutil.copy("../build/Makefile", outdir + "/../build/Makefile")
         shutil.copy("dataF", outdir + "/data")
         shutil.copy("data.ptracers", outdir + "/data.ptracers")
+        shutil.copy("data.layers", outdir)
         shutil.copy("eedata", outdir)
         shutil.copy("data.kl10", outdir)
         # shutil.copy('data.btforcing', outdir)
@@ -302,6 +303,23 @@ if True:
     ax.plot(T0, z)
     ax.set_ylim([2000, 0])
     fig.savefig(outdir + "/figs/TO.pdf")
+
+    # get layers for data.layers....
+    nlayers = 40
+    layerbounds = np.linspace(T0.min(), T0.max(), nlayers + 1)
+    layersst = "&LAYERS_PARM01\n"
+    layersst += " # temperature bins!\n"
+    layersst += " layers_name(1) ='TH',\n"
+    layersst += " # there need to be one more of these than the number of layers\n"
+    layersst += f" layers_bounds(1:{nlayers+1},1)= "
+    for i in range(0, nlayers + 1):
+        layersst += f"{layerbounds[i]:.2f}, "
+        if i % 4 == 3:
+            layersst += "\n "
+    layersst += "/"
+
+    with open(outdir + "/data.layers", "w") as f:
+        f.write(layersst)
 
     time = np.arange(0, 1240 * 36, 1240)
 

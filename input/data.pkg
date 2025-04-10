@@ -6,4 +6,5 @@
  useMNC=.TRUE.,
  useOBCS=.TRUE.,
  usePTRACERS=.TRUE.,
+ useLayers=.TRUE.,
  /

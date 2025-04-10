@@ -26,6 +26,7 @@
  timePhase(3) = 930,
  fields(1:2,3) = 'KLeps   ',
                  'KLviscAr',
+# tidal average
  filename(4)   = 'tideave',
  frequency(4)  = 44640,
  timePhase(4)  = 0,
@@ -40,6 +41,11 @@
                 'TRAC04  ',
                 'KLeps   ',
                 'KLviscAr',
+
+# Residual mean flow - Layers Package
+ fields(1:3,5) = 'LaUH1TH ', 'LaHw1TH ',
+ frequency(5) = 44640,
+ fileName(5) = 'layDiag',
 
 # tidal average
 #

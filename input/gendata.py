@@ -305,7 +305,7 @@ if True:
     fig.savefig(outdir + "/figs/TO.pdf")
 
     # get layers for data.layers....
-    nlayers = 40
+    nlayers = 100
     layerbounds = np.linspace(T0.min(), T0.max(), nlayers + 1)
     layersst = "&LAYERS_PARM01\n"
     layersst += "# temperature bins!\n"

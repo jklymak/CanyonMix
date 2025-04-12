@@ -72,9 +72,10 @@ if True:
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
 
-    db = np.array([0, -2000])
-    xb = 0 * db
-    xb[1] = (db[0] - db[1]) / alpha / om * N0
+    if True:
+        db = np.array([0, -2000])
+        xb = 0 * db
+        xb[1] = (db[0] - db[1]) / alpha / om * N0
 
 
     runname = f"Slope2D{runno:03d}"
@@ -239,46 +240,13 @@ if True:
     # get the topo:
     d = np.zeros((ny, nx))
     H = 2000
-    d[0,] = (-np.max(x) + x) * dhdx
-    d[0, d[0,:] < -H] = -H
-    #  d[0, d[0, :]<-1700] = -H
-
-    # d[0, d[0, :]>-50] = -50
-    d[0, -1] = 0
-
-    if expH:
-        for i in range(nx-2, -1, -1):
-            d[0, i] = d[0, i+1] - dx[i] * dhdx  * np.exp(1 + d[0, i+1] / 500)
-    d[0, d[0,:] < -H] = -H
-
-    # wavy:
-    d[0, :] = -H
-    i = len(x) - 1
-    d[0, i] = 0
-    while d[0, i] > -200:
-        i = i - 1
-        d[0, i] = d[0, i+1] - dx[i-1] * 200 / 15_000  # 15 km wide shelf
-    while d[0, i] > -700:
-        i = i - 1
-        d[0, i] = d[0, i+1] - dx[i-1] * om / N0 * 1.5
-    while d[0, i] > -1000:
-        i = i - 1
-        d[0, i] = d[0, i+1] - dx[i-1] * om / N0 * 0.5
-    while d[0, i] > -1500:
-        i = i - 1
-        d[0, i] = d[0, i+1] - dx[i-1] * om / N0 * 1.5
-    while d[0, i] > -1800:
-        i = i - 1
-        d[0, i] = d[0, i+1] - dx[i-1] * om / N0 * 0.5
-    while d[0, i] > -2000:
-        i = i - 1
-        d[0, i] = d[0, i+1] - dx[i-1] * om / N0 * 1.5
-    d[0, d[0,:] < -H] = -H
-    d[0, :] = np.convolve(d[0, :], np.ones(20) / 20, mode="same")
+    d[0, :]  = np.interp(x, x[-1] - xb[::-1], db[::-1], left=-H, right=0)
+    if len(xb) > 2:
+        # smooth the sharp edges
+        d[0, :] = np.convolve(d[0, :], np.ones(10) / 10, mode="same")
     d[0, d[0,:] < -H] = -H
     d[0, :20] = -H
     d[0, -1] = 0.0
-
 
     with open(indir + "/topog.bin", "wb") as f:
         d.tofile(f)

@@ -59,7 +59,7 @@
 # Time stepping parameters
  &PARM03
  startTime=0,
- endTime=669600,
+ endTime=1339200.0,
 # nEnditer=72000,
  deltaT=6.2,
  abEps=0.1,

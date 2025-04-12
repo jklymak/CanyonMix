@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-
+    runno = 1
     u0 = 0.6
     f0 = 0.0
     geo_beta = 0.0
@@ -37,7 +37,7 @@ if True:
     _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
-    alpha = 1.25
+    alpha = 0.7
     dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
     dhdx = alpha * dzdxIW
     expH = False
@@ -47,8 +47,10 @@ if True:
     #alpha = dhdx * N0 / om
 
     # initialize the tracers 5 tidal periods:
-    tracert0 = 12.4*3600*5
+    tracert0 = 12.4*3600*20
     deltaT = 6.2
+    # 30 tidal periods:
+    endTime = 12.4 * 3600 * 30
 
     if strat_scale > 4000:
         strattype = "const"
@@ -59,9 +61,27 @@ if True:
     else:
         seafloor = ''
 
-    runname = f"WavySlope001{strattype}N{N0*1e5:.0f}u0{u0*1e2:.0f}"
+    # define bathy:
+    # wavey slope (sub and supercritical sections)
+    super = om / N0 * 1.5
+    sub = om / N0 * 0.5
+    db = np.array([0., -200, -700, -1000, -1500, -1800, -2000])
+    xb = 0. * db
+    xb[1] = 15_000.
+    crit = [0, super, sub, super, sub, super, sub]
+    for td in range(2, len(db)):
+        xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
+
+    db = np.array([0, -2000])
+    xb = 0 * db
+    xb[1] = (db[0] - db[1]) / alpha / om * N0
+
+
+    runname = f"Slope2D{runno:03d}"
     outdir0 = "../results/" + runname + "/"
-    comments = f"alpha = {alpha}. dhdx={dhdx} {strattype} stratification, no shelf etc. u_0={u0}. N_0={N0}.  Three tracers"
+    comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
+    comments += f"   topox: {xb} topodepth: {db}\n"
+    print(comments)
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 
@@ -70,6 +90,7 @@ if True:
     replace_data("dataF", "f0", "%1.3e" % f0)
     replace_data("dataF", "beta", "%1.3e" % geo_beta)
     replace_data("dataF", "deltaT", f"{deltaT}")
+    replace_data("dataF", "endTime", f"{endTime}")
 
     # model size
     nx = 8 * 120
@@ -236,7 +257,7 @@ if True:
     d[0, i] = 0
     while d[0, i] > -200:
         i = i - 1
-        d[0, i] = d[0, i+1] - dx[i-1] * 200 / 15_000  # 5 km wide shelf
+        d[0, i] = d[0, i+1] - dx[i-1] * 200 / 15_000  # 15 km wide shelf
     while d[0, i] > -700:
         i = i - 1
         d[0, i] = d[0, i+1] - dx[i-1] * om / N0 * 1.5

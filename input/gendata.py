@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 1
+    runno = 2
     u0 = 0.6
     f0 = 0.0
     geo_beta = 0.0
@@ -72,7 +72,7 @@ if True:
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
 
-    if True:
+    if False:
         db = np.array([0, -2000])
         xb = 0 * db
         xb[1] = (db[0] - db[1]) / alpha / om * N0

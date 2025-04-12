@@ -68,7 +68,7 @@ if True:
     db = np.array([0., -200, -700, -1000, -1500, -1800, -2000])
     xb = 0. * db
     xb[1] = 15_000.
-    crit = [0, super, sub, super, sub, super, sub]
+    crit = [0, sub, super,  sub, super, sub, super]
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
 

@@ -1,3 +1,10 @@
+2025-04-12 08:47:05
+../results/Slope2D002/input/
+Slope2D002 alpha = 0.7. const stratification. u_0=0.6. N_0=0.002.  Four tracers
+   topox: [    0.         15000.         19736.45110641 28262.06309796
+ 32998.51420438 41524.12619592 43418.70663849] topodepth: [    0.  -200.  -700. -1000. -1500. -1800. -2000.]
+
+
 2025-04-12 08:45:58
 ../results/Slope2D002/input/
 Slope2D002 alpha = 0.7. const stratification. u_0=0.6. N_0=0.002.  Four tracers

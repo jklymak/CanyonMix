@@ -73,7 +73,7 @@ if True:
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
 
-    if False:
+    if True:
         db = np.array([0, -2000])
         xb = 0 * db
         xb[1] = (db[0] - db[1]) / alpha / om * N0

@@ -1,3 +1,7 @@
+2025-04-12 17:17:03
+../results/Slope2D003/input/
+single slope: N0 = 2e-3, No forcing; dhdx = 0.7 om / N0, Kz=1e-2
+
 2025-04-12 08:47:05
 ../results/Slope2D002/input/
 Slope2D002 alpha = 0.7. const stratification. u_0=0.6. N_0=0.002.  Four tracers

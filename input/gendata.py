@@ -23,9 +23,10 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 2
-    u0 = 0.6
+    runno = 3
+    u0 = 0.0
     f0 = 0.0
+    fixedKz=1e-2
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
@@ -80,9 +81,10 @@ if True:
 
     runname = f"Slope2D{runno:03d}"
     outdir0 = "../results/" + runname + "/"
-    comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
-    comments += f"   topox: {xb} topodepth: {db}\n"
-    print(comments)
+    #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
+    #comments += f"   topox: {xb} topodepth: {db}\n"
+    #print(comments)
+    comments = "single slope: N0 = 2e-3, No forcing; dhdx = 0.7 om / N0, Kz=1e-2"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 
@@ -92,6 +94,13 @@ if True:
     replace_data("dataF", "beta", "%1.3e" % geo_beta)
     replace_data("dataF", "deltaT", f"{deltaT}")
     replace_data("dataF", "endTime", f"{endTime}")
+
+    if fixedKz:
+        for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT', 'diffKhS', 'diffKzS']:
+            replace_data("dataF", f"{td}", f"{fixedKz}")
+
+    replace_data("data.pkg", "useKL10", ".FALSE.")
+
 
     # model size
     nx = 8 * 120

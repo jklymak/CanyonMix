@@ -1,6 +1,6 @@
 # Packages
  &PACKAGES
- useKL10=.FALSE.,
+ useKL10=.TRUE.,
  useKPP=.FALSE.,
  useDIAGNOSTICS=.TRUE.,
  useMNC=.TRUE.,

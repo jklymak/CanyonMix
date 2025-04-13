@@ -98,9 +98,11 @@ if True:
     if fixedKz:
         for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT', 'diffKhS', 'diffKzS']:
             replace_data("dataF", f"{td}", f"{fixedKz}")
+        replace_data("data.kl10", "KLviscMax", f"{fixedKz / 1000.}")
+    else:
+        replace_data("data.kl10", "KLviscMax", "300")
 
-    replace_data("data.pkg", "useKL10", ".FALSE.")
-
+    replace_data("data.pkg", "useKL10", ".TRUE.")
 
     # model size
     nx = 8 * 120

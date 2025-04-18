@@ -23,8 +23,8 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 5
-    u0 = 0.3
+    runno = 6
+    u0 = 0.9
     f0 = 0.0
     fixedKz = 4e-2
     geo_beta = 0.0
@@ -84,7 +84,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "single slope: N0 = 2e-3, 0.3 m/s forcing; dhdx = 0.7 om / N0, Kz=4e-2"
+    comments = "single slope: N0 = 2e-3, 0.9 m/s forcing; dhdx = 0.7 om / N0, Kz=4e-2"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 
@@ -98,7 +98,7 @@ if True:
     if fixedKz:
         for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT', 'diffKhS', 'diffKzS']:
             replace_data("dataF", f"{td}", f"{fixedKz}")
-        replace_data("data.kl10", "KLviscMax", f"{fixedKz / 1000.}")
+        replace_data("data.kl10", "KLviscMax", f"{fixedKz/1000.}")
     else:
         replace_data("data.kl10", "KLviscMax", "300")
 

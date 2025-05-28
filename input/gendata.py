@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 7
+    runno = 8
     u0 = 0.6
     f0 = 0.0
     fixedKz = 4e-2
@@ -84,7 +84,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "single slope: N0 = 2e-3, 0.6 m/s forcing; dhdx = 0.7 om / N0, Kz=4e-2"
+    comments = "wavey slope;  const N0 = 2e-3, 0.6 m/s forcing; dhdx = 0.7 om / N0, Kz=4e-2"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 

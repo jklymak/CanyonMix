@@ -1,3 +1,7 @@
+2025-05-28 14:32:38
+../results/Slope2D008/input/
+wavey slope;  const N0 = 2e-3, 0.6 m/s forcing; dhdx = 0.7 om / N0, Kz=4e-2
+
 2025-04-17 19:25:11
 ../results/Slope2D007/input/
 single slope: N0 = 2e-3, 0.6 m/s forcing; dhdx = 0.7 om / N0, Kz=4e-2

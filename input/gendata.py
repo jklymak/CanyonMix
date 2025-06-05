@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 9
+    runno = 10
     u0 = 0.6
     f0 = 0.0
     fixedKz = None
@@ -66,10 +66,10 @@ if True:
     # wavey slope (sub and supercritical sections)
     super = om / N0 * 1.5
     sub = om / N0 * 0.5
-    db = np.array([0., -200, -700+150, -1000+150, -1500+150, -1800+150, -2000])
+    db = np.array([0., -200, -400, -700-200, -1000-200, -1500-200, -1800-190, -2000])
     xb = 0. * db
     xb[1] = 15_000.
-    crit = [0, sub, super,  sub, super, sub, super]
+    crit = [0, sub, super,  sub, super, sub, super, sub]
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
 
@@ -84,7 +84,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "wavey slope;  const N0 = 2e-3, 0.6 m/s forcing; dhdx = 0.7 om / N0, Kz=KL10"
+    comments = "wavey slope; move the peaks a bit again;  const N0 = 2e-3, 0.6 m/s forcing; dhdx = 0.7 om / N0, Kz=KL10"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 

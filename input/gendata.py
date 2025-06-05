@@ -66,10 +66,10 @@ if True:
     # wavey slope (sub and supercritical sections)
     super = om / N0 * 1.5
     sub = om / N0 * 0.5
-    db = np.array([0., -200, -400, -700-200, -1000-200, -1500-200, -1800-190, -2000])
+    db = np.array([0., -400, -700-200, -1000-200, -1500-200, -1800-190, -2000])
     xb = 0. * db
     xb[1] = 15_000.
-    crit = [0, sub, super,  sub, super, sub, super, sub]
+    crit = [0, sub, super,  sub, super, sub, super]
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
 

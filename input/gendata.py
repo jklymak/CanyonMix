@@ -99,8 +99,8 @@ if True:
 
     if fixedKz:
         if fixedKz == 'file':
-            replace_data("dataF", "diffKrFile", "../indata/Kr.bin")
-            replace_data("dataF", "viscAhZfile", "../indata/Kr.bin")
+            replace_data("dataF", "diffKrFile", "'../indata/Kr.bin'")
+            replace_data("dataF", "viscAhZfile", "'../indata/Kr.bin'")
             for td in ['viscAz', 'diffKzT', 'diffKzS']:
                 replace_data("dataF", f"{td}", f"{1e-5}")
             for td in ['viscAh', 'diffKhT', 'diffKhS']:

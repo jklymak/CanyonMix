@@ -105,9 +105,10 @@ if True:
                 replace_data("dataF", f"{td}", f"{1e-5}")
             for td in ['viscAh', 'diffKhT', 'diffKhS']:
                 replace_data("dataF", f"{td}", f"{1e-3}")
+        else:
 
-        for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT', 'diffKhS', 'diffKzS']:
-            replace_data("dataF", f"{td}", f"{fixedKz}")
+            for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT', 'diffKhS', 'diffKzS']:
+                replace_data("dataF", f"{td}", f"{fixedKz}")
         replace_data("data.kl10", "KLviscMax", f"{1e-7}")
     else:
         replace_data("data.kl10", "KLviscMax", "300")

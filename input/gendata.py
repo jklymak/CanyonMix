@@ -424,9 +424,12 @@ if True:
                                 geometry='cartesian', endian='<',
                                 iters='all') as ds0:
             ds = ds0.isel(YC=0, YG=0, time=slice(-5, None)).mean(dim='time')
-            data = ds.KLviscAr.values
             with open(indir + "/Kr.bin", "wb") as f:
-                data.tofile(f)
+                ds.KLviscAr.values.tofile(f)
+            fig, ax = plt.subplots()
+            ax.pcolormesh(np.log10(ds.KLviscAr.values), rasterized=True)
+            fig.savefig(outdir + "/figs/Kr.png", dpi=200)
+
 
     try:
         shutil.rmtree("../archive/" + runname)

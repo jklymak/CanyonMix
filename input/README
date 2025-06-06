@@ -1,3 +1,8 @@
+2025-06-06 09:45:43
+../results/Slope2D011/input/
+As Slope2D002 wavey slope; move the peaks a bit again;  const N0 = 2e-3, 0.0 m/s forcing, Kz=from file based on Slope2D002 mean diffusitivy at end of run.
+
+
 2025-06-05 13:38:56
 ../results/Slope2D010/input/
 wavey slope; move the peaks a bit again;  const N0 = 2e-3, 0.6 m/s forcing; dhdx = 0.7 om / N0, Kz=KL10

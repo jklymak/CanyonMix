@@ -14,6 +14,7 @@ import shutil, os, glob
 import scipy.signal as scisig
 import logging
 from replace_data import replace_data
+import xmitgcm as xm
 
 logging.basicConfig(level=logging.INFO)
 
@@ -23,10 +24,11 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 10
-    u0 = 0.6
+    runno = 11
+    u0 = 0.0
     f0 = 0.0
-    fixedKz = None
+    fixedKz = 'file'
+    sourceKz = 'Slope2D002'
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
@@ -66,7 +68,7 @@ if True:
     # wavey slope (sub and supercritical sections)
     super = om / N0 * 1.5
     sub = om / N0 * 0.5
-    db = np.array([0., -400, -700-200, -1000-200, -1500-200, -1800-190, -2000])
+    db = np.array([0., -200, -700, -1000, -1500, -1800, -2000])
     xb = 0. * db
     xb[1] = 15_000.
     crit = [0, sub, super,  sub, super, sub, super]
@@ -84,7 +86,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "wavey slope; move the peaks a bit again;  const N0 = 2e-3, 0.6 m/s forcing; dhdx = 0.7 om / N0, Kz=KL10"
+    comments = "As Slope2D002 wavey slope; move the peaks a bit again;  const N0 = 2e-3, 0.0 m/s forcing, Kz=from file based on Slope2D002 mean diffusitivy at end of run.\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 
@@ -96,9 +98,17 @@ if True:
     replace_data("dataF", "endTime", f"{endTime}")
 
     if fixedKz:
+        if fixedKz == 'file':
+            replace_data("dataF", "diffKrFile", "../indata/Kr.bin")
+            replace_data("dataF", "viscAhZfile", "../indata/Kr.bin")
+            for td in ['viscAz', 'diffKzT', 'diffKzS']:
+                replace_data("dataF", f"{td}", f"{1e-5}")
+            for td in ['viscAh', 'diffKhT', 'diffKhS']:
+                replace_data("dataF", f"{td}", f"{1e-3}")
+
         for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT', 'diffKhS', 'diffKzS']:
             replace_data("dataF", f"{td}", f"{fixedKz}")
-        replace_data("data.kl10", "KLviscMax", f"{fixedKz/1000.}")
+        replace_data("data.kl10", "KLviscMax", f"{1e-7}")
     else:
         replace_data("data.kl10", "KLviscMax", "300")
 
@@ -407,6 +417,16 @@ if True:
     _log.info("All Done!")
 
     _log.info("Archiving to home directory")
+
+    if sourceKz:
+        with xm.open_mdsdataset(f'../results/{sourceKz}/input/',
+                                prefix=['tideave'],
+                                geometry='cartesian', endian='<',
+                                iters='all') as ds0:
+            ds = ds0.isel(YC=0, YG=0, time=slice(-5, None)).mean(dim='time')
+            data = ds.KLviscAr.values
+            with open(indir + "/Kr.bin", "wb") as f:
+                data.tofile(f)
 
     try:
         shutil.rmtree("../archive/" + runname)

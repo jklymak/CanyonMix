@@ -444,7 +444,7 @@ if True:
                 K[:, 0, i] = strength * np.exp((+z+d[0, i]) / decay)
                 last = i
             else:
-                K[:, 0, i] = strength * np.exp((+z-H) / decay) * np.exp((x[last]-x[i])/20e3)
+                K[:, 0, i] = strength * np.exp((+z-H) / decay) * np.exp(-(x[last]-x[i])/20e3)
         K[K<1e-5] = 1e-5
 
         fig, ax = plt.subplots()

@@ -24,11 +24,12 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 11
+    runno = 12
     u0 = 0.0
     f0 = 0.0
     fixedKz = 'file'
     sourceKz = 'Slope2D002'
+    sourceKz = (300, 1e-2) # decay, strength
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
@@ -75,7 +76,7 @@ if True:
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
 
-    if False:
+    if True:
         db = np.array([0, -2000])
         xb = 0 * db
         xb[1] = (db[0] - db[1]) / alpha / om * N0
@@ -86,7 +87,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "As Slope2D002 wavey slope; move the peaks a bit again;  const N0 = 2e-3, 0.0 m/s forcing, Kz=from file based on Slope2D002 mean diffusitivy at end of run.\n"
+    comments = "Enhanced near-bottom Kr, constant strat.  Constant slope, no forcing\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 
@@ -420,7 +421,7 @@ if True:
 
     _log.info("Archiving to home directory")
 
-    if sourceKz:
+    if isinstance(sourceKz, str):
         with xm.open_mdsdataset(f'../results/{sourceKz}/input/',
                                 prefix=['tideave'],
                                 geometry='cartesian', endian='<',
@@ -431,6 +432,24 @@ if True:
             fig, ax = plt.subplots()
             ax.pcolormesh(np.log10(ds.KLviscAr.values), rasterized=True)
             fig.savefig(outdir + "/figs/Kr.png", dpi=200)
+    elif isinstance(sourceKz, tuple):
+        decay = sourceKz[0]
+        strength = sourceKz[1]
+        _log.info("Using decay %f and strength %f", decay, strength)
+        K = np.ones((nz, ny, nx)) * 1e-5
+        for i in range(0, nx):
+            if d[0, i] > -H:
+                K[:, 0, i] = strength * np.exp((z+d[0, i]) / decay)
+        fig, ax = plt.subplots()
+        ax.pcolormesh(np.log10(K[:, 0, :]), rasterized=True)
+        fig.savefig(outdir + "/figs/Kr.png", dpi=200)
+
+        with open(indir + "/Kr.bin", "wb") as f:
+            K.tofile(f)
+
+
+
+
 
 
     try:

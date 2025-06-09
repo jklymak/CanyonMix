@@ -437,8 +437,9 @@ if True:
         strength = sourceKz[1]
         _log.info("Using decay %f and strength %f", decay, strength)
         K = np.ones((nz, ny, nx)) * 1e-5
+        print(z)
+
         for i in range(0, nx):
-            print(d[0, i])
             if d[0, i] > -H:
                 K[:, 0, i] = strength * np.exp(-(z+d[0, i]) / decay)
         fig, ax = plt.subplots()

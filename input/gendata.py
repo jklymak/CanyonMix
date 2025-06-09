@@ -442,8 +442,10 @@ if True:
         for i in range(0, nx):
             if d[0, i] > -H:
                 K[:, 0, i] = strength * np.exp((-z+d[0, i]) / decay)
+
         fig, ax = plt.subplots()
-        ax.pcolormesh(np.log10(K[:, 0, :]), rasterized=True)
+        ax.pcolormesh(x, z, np.log10(K[:, 0, :]), rasterized=True, vmin=-5, vmax=-2)
+        ax.plot(x, -d[0, :], 'k')
         fig.savefig(outdir + "/figs/Kr.png", dpi=200)
 
         with open(indir + "/Kr.bin", "wb") as f:

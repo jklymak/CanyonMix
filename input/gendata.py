@@ -441,7 +441,7 @@ if True:
 
         for i in range(0, nx):
             if d[0, i] > -H:
-                K[:, 0, i] = strength * np.exp((-z-d[0, i]) / decay)
+                K[:, 0, i] = strength * np.exp((+z+d[0, i]) / decay)
 
         fig, ax = plt.subplots()
         ax.pcolormesh(x, -z, np.log10(K[:, 0, :]), rasterized=True, vmin=-5, vmax=-2)

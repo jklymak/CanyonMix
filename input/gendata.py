@@ -439,7 +439,7 @@ if True:
         K = np.ones((nz, ny, nx)) * 1e-5
         for i in range(0, nx):
             if d[0, i] > -H:
-                K[:, 0, i] = strength * np.exp((z+d[0, i]) / decay)
+                K[:, 0, i] = strength * np.exp(-(z+d[0, i]) / decay)
         fig, ax = plt.subplots()
         ax.pcolormesh(np.log10(K[:, 0, :]), rasterized=True)
         fig.savefig(outdir + "/figs/Kr.png", dpi=200)

@@ -29,7 +29,7 @@ if True:
     f0 = 0.0
     fixedKz = 'file'
     sourceKz = 'Slope2D002'
-    sourceKz = (150, 1e-2) # decay, strength
+    sourceKz = (200, 1e-1) # decay, strength
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500

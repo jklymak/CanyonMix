@@ -439,9 +439,13 @@ if True:
         K = np.ones((nz, ny, nx)) * 1e-5
         print(z)
 
-        for i in range(0, nx):
+        for i in range(nx-1, 0, -1):
             if d[0, i] > -H:
                 K[:, 0, i] = strength * np.exp((+z+d[0, i]) / decay)
+                last = i
+            else:
+                K[:, 0, i] = strength * np.exp((+z+H) / decay) * np.exp((x[last]-x[i])/20e3)
+        K[K<1e-5] = 1e-5
 
         fig, ax = plt.subplots()
         ax.pcolormesh(x, -z, np.log10(K[:, 0, :]), rasterized=True, vmin=-5, vmax=-2)

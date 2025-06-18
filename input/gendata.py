@@ -24,11 +24,11 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 15
-    u0 = 0.0
+    runno = 16
+    u0 = 0.6
     f0 = 0.0
     fixedKz = 'file'
-    fixedKz = 1e-2
+    fixedKz = None
     sourceKz = 'Slope2D002'
     sourceKz = (200, 1e-1) # decay, strength
     sourceKz = None

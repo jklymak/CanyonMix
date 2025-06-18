@@ -33,7 +33,7 @@ if True:
     sourceKz = (200, 1e-1) # decay, strength
     sourceKz = None
     geo_beta = 0.0
-    strat_scale = 500e10 # 500  # m
+    strat_scale = 500 # 500  # m
     strat_scale_comp = 500
     N00 = 2e-3
     if strat_scale < 10_000:

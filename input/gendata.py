@@ -445,7 +445,7 @@ if True:
                 if exponential:
                     K[:, 0, i] = strength * np.exp((+z+d[0, i]) / decay)
                 else:
-                    ind = np.where(-z > d[0, i]+decay)[0]
+                    ind = np.where(-z < d[0, i]+decay)[0]
                     K[ind, 0, i] = strength
                 last = i
             else:

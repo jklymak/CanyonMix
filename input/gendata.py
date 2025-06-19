@@ -24,12 +24,12 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 17
+    runno = 18
     u0 = 0.0
     f0 = 0.0
     fixedKz = 'file'
     sourceKz = 'Slope2D002'
-    sourceKz = (300, 1e-2) # decay, strength
+    sourceKz = (200, 1e-2, False) # decay, strength, exponential
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
@@ -435,16 +435,26 @@ if True:
     elif isinstance(sourceKz, tuple):
         decay = sourceKz[0]
         strength = sourceKz[1]
+        exponential = sourceKz[2]
         _log.info("Using decay %f and strength %f", decay, strength)
         K = np.ones((nz, ny, nx)) * 1e-5
         print(z)
 
         for i in range(nx-1, 0, -1):
             if d[0, i] > -H:
-                K[:, 0, i] = strength * np.exp((+z+d[0, i]) / decay)
+                if exponential:
+                    K[:, 0, i] = strength * np.exp((+z+d[0, i]) / decay)
+                else:
+                    ind = np.where(-z > d[0, i]-decay)[0][-1]
+                    K[ind, 0, i] = strength
                 last = i
             else:
-                K[:, 0, i] = strength * np.exp((+z+d[0, i]) / decay) * np.exp(-(x[last]-x[i])/5e3)
+                if exponential:
+                    K[:, 0, i] = strength * np.exp((+z+d[0, i]) / decay) * np.exp(-(x[last]-x[i])/5e3)
+                else:
+                    ind = np.where(-z > d[0, i]-decay)[0][-1]
+                    K[ind, 0, i] = strength * np.exp(-(x[last]-x[i])/5e3)
+
         K[K<1e-5] = 1e-5
 
         fig, ax = plt.subplots()

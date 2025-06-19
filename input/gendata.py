@@ -24,12 +24,12 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 12
+    runno = 17
     u0 = 0.0
     f0 = 0.0
     fixedKz = 'file'
     sourceKz = 'Slope2D002'
-    sourceKz = (200, 1e-1) # decay, strength
+    sourceKz = (300, 1e-2) # decay, strength
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
@@ -87,7 +87,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Enhanced near-bottom Kr, constant strat.  Constant slope, no forcing\n"
+    comments = "Enhanced near-bottom Kr=1e-2 300m scale, constant strat.  Constant slope, no forcing\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 

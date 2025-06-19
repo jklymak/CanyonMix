@@ -452,7 +452,7 @@ if True:
                 if exponential:
                     K[:, 0, i] = strength * np.exp((+z+d[0, i]) / decay) * np.exp(-(x[last]-x[i])/5e3)
                 else:
-                    ind = np.where(-z > d[0, i]+decay)[0]
+                    ind = np.where(-z < d[0, i]+decay)[0]
                     K[ind, 0, i] = strength * np.exp(-(x[last]-x[i])/5e3)
 
         K[K<1e-5] = 1e-5

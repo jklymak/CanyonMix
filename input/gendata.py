@@ -447,7 +447,7 @@ if True:
                 else:
                     ind = np.where(-z < d[0, i]+decay)[0]
                     K[ind, 0, i] = strength
-                    K[:, 0, i] = 10**np.convolve(np.log10(K[:, 0, i]), np.ones(10)/10, mode='same')
+                    K[:, 0, i] = 10**np.convolve(np.log10(K[:, 0, i]), np.ones(15) / 15, mode='same')
                 last = i
             else:
                 if exponential:
@@ -455,7 +455,7 @@ if True:
                 else:
                     ind = np.where(-z < d[0, i]+decay)[0]
                     K[ind, 0, i] = strength * np.exp(-(x[last]-x[i])/5e3)
-                    K[:, 0, i] = 10**np.convolve(np.log10(K[:, 0, i]), np.ones(10)/10, mode='same')
+                    K[:, 0, i] = 10**np.convolve(np.log10(K[:, 0, i]), np.ones(15) / 15, mode='same')
 
         K[K<1e-5] = 1e-5
 

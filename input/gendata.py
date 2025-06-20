@@ -105,7 +105,7 @@ if True:
             for td in ['viscAz', 'diffKzT', 'diffKzS']:
                 replace_data("dataF", f"{td}", f"{1e-5}")
             for td in ['viscAh', 'diffKhT', 'diffKhS']:
-                replace_data("dataF", f"{td}", f"{1e-3}")
+                replace_data("dataF", f"{td}", f"{1e-2}")
             replace_data("data.pkg", "useKL10", ".FALSE.")
         else:
 

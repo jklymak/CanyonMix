@@ -29,7 +29,7 @@ if True:
     f0 = 0.0
     fixedKz = 'file'
     sourceKz = 'Slope2D002'
-    sourceKz = (250, 1e-2, False) # decay, strength, exponential
+    sourceKz = (250, 4e-2, False) # decay, strength, exponential
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
@@ -105,7 +105,7 @@ if True:
             for td in ['viscAz', 'diffKzT', 'diffKzS']:
                 replace_data("dataF", f"{td}", f"{1e-5}")
             for td in ['viscAh', 'diffKhT', 'diffKhS']:
-                replace_data("dataF", f"{td}", f"{1e-2}")
+                replace_data("dataF", f"{td}", f"{4e-2}")
             replace_data("data.pkg", "useKL10", ".FALSE.")
         else:
 

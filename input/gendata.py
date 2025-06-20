@@ -87,7 +87,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Enhanced near-bottom Kr=1e-2 300m scale, constant strat.  Constant slope, no forcing\n"
+    comments = "Enhanced near-bottom Kr=1e-2 300m scale, larger horizontal K, constant strat.  Constant slope, no forcing\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 

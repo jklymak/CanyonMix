@@ -24,14 +24,14 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 19
+    runno = 20
     u0 = 0.0
     f0 = 0.0
     fixedKz = 'file'
     sourceKz = 'Slope2D002'
     sourceKz = (250, 4e-2, False) # decay, strength, exponential
     geo_beta = 0.0
-    strat_scale = 1e30 # 500  # m
+    strat_scale = 500 # 500  # m
     strat_scale_comp = 500
     N00 = 2e-3
     if strat_scale < 10_000:

@@ -10,9 +10,9 @@ tags: ["_active", "MITgcm", "Alford"]
 
 The version I'll use is the `varbd_bt` branch of my own fork.  https://github.com/jklymak/MITgcm/
 
+
+
 ## Mixing on a slope...
-
-
 
 - running smooth versions with 0.6 m/s forcing.  Need to check alpha.  Try sub and supercritical at the same alpha.  Too strong stratification and overturns cannot develop.  Rough seafloor leads to more turnulence (a lot), so can play with hfac.  hfac=1 is much more turbulence than hfac=0.1.
 

@@ -1,3 +1,8 @@
+2025-08-05 15:03:05
+../results/Slope2D030/input/
+High Kz=1e-2 250m decay, constant strat, larger horizontal K, Constant slope, no forcing; Constant strat compare with Slope2D021
+
+
 2025-08-05 15:01:30
 ../results/Slope2D029/input/
 High Kz=1e-3 250m decay, constant strat, larger horizontal K, Constant slope, no forcing; Constant strat compare with Slope2D021
@@ -5,7 +10,7 @@ High Kz=1e-3 250m decay, constant strat, larger horizontal K, Constant slope, no
 
 2025-08-05 15:00:40
 ../results/Slope2D028/input/
-High Kz=4e-1 250m decay, constant strat, larger horizontal K, Constant slope, no forcing; Constant strat compare with Slope2D021
+High Kz=1e-3 250m decay, exp. strat, larger horizontal K, Constant slope, no forcing;
 
 
 2025-08-02 21:07:57

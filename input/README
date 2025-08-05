@@ -1,11 +1,16 @@
+2025-08-05 15:00:40
+../results/Slope2D028/input/
+High Kz=4e-1 250m decay, constant strat, larger horizontal K, Constant slope, no forcing; Constant strat compare with Slope2D021
+
+
 2025-08-02 21:07:57
 ../results/Slope2D027/input/
-High Kz=4e-1 250m decay, constant strat, larger horizontal K, Constant slope, no forcing; Constant strat compare with Slope2D021
+High Kz=1e-5 250m decay, constant strat, larger horizontal K, Constant slope, no forcing; Constant strat compare with Slope2D021
 
 
 2025-08-02 12:41:22
 ../results/Slope2D026/input/
-High Kz=4e-1 250m decay, constant strat, larger horizontal K, Constant slope, no forcing; Constant strat compare with Slope2D021
+High Kz=1e-1 250m decay, constant strat, larger horizontal K, Constant slope, no forcing; Constant strat compare with Slope2D021
 
 
 2025-08-02 07:55:13
@@ -20,7 +25,7 @@ Constant K=1e-5, larger horizontal K, exponential strat.  Constant slope, no for
 
 2025-08-01 14:08:55
 ../results/Slope2D023/input/
-Enhanced near-bottom Kr=4e-1 exponential 250m scale, larger horizontal K, exponential strat.  Constant slope, no forcing
+Enhanced near-bottom Kr=1e-1 exponential 250m scale, larger horizontal K, exponential strat.  Constant slope, no forcing
 
 
 2025-08-01 09:46:53
@@ -30,7 +35,7 @@ Enhanced near-bottom Kr=4e-1 exponential 250m scale, larger horizontal K, expone
 
 2025-07-31 14:11:35
 ../results/Slope2D021/input/
-Enhanced near-bottom Kr=4e-1 exponential 250m scale, larger horizontal K, exponential strat.  Constant slope, no forcing
+Enhanced near-bottom Kr=1e-2 exponential 250m scale, larger horizontal K, exponential strat.  Constant slope, no forcing
 
 
 2025-06-21 16:59:52

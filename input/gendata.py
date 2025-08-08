@@ -24,7 +24,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    comments = "Kl10, tidal forcing=0.6 m/s N00 = 2e-3, linear strat.  Longer run, and layer diagnostic running\n"
+    comments = "Kl10, tidal forcing=0.3 m/s N00 = 2e-3, linear strat.  Longer run, and layer diagnostic running\n"
 
     runno = 52
     u0 = 0.3

@@ -24,9 +24,9 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    comments = "Kl10, tidal forcing=0.3 m/s N00 = 2e-3, exponential strat.  Longer run, and layer diagnostic running\n"
+    comments = "Kl10, tidal forcing=0.3 m/s N00 = 2e-3, exponential strat.  Longer run, and layer diagnostic running alpha =1.0\n"
 
-    runno = 53
+    runno = 54
     u0 = 0.3
     f0 = 0.0
     fixedKz = 'file'
@@ -46,7 +46,7 @@ if True:
     _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
-    alpha = 0.7
+    alpha = 1.0
     dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
     dhdx = alpha * dzdxIW
     expH = False

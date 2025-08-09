@@ -24,9 +24,9 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    comments = "Kl10, tidal forcing=0.3 m/s N00 = 2e-3, exp strat.  Longer run, and layer diagnostic running alpha =0.4\n"
+    comments = "Kl10, tidal forcing=0.3 m/s N00 = 2e-3, const strat.  Longer run, and layer diagnostic running alpha =0.4\n"
 
-    runno = 56
+    runno = 57
     u0 = 0.3
     f0 = 0.0
     fixedKz = 'file'
@@ -36,7 +36,7 @@ if True:
     sourceKz = None
 
     geo_beta = 0.0
-    strat_scale = 500 # 500  # m
+    strat_scale = 500_000_000 # 500  # m
     strat_scale_comp = 500
     N00 = 2e-3
     if strat_scale < 10_000:

@@ -37,7 +37,9 @@ NOOPTFILES=''
 # for large memory requirements uncomment this line
 MCMODEL='-mcmodel=medium'
 
-FFLAGS="$FFLAGS $MCMODEL"
+FFLAGS="$FFLAGS $MCMODEL -fallow-argument-mismatch"
+FCLAGS="$FCFLAGS $MCMODEL -fallow-argument-mismatch"
+
 #- might want to use '-r8' for fizhi pkg:
 #FFLAGS="$FFLAGS -r8"
 

@@ -5,6 +5,6 @@
  useDIAGNOSTICS=.TRUE.,
  useMNC=.TRUE.,
  useOBCS=.TRUE.,
- usePTRACERS=.FALSE.,
- useLayers=.FALSE.,
+ usePTRACERS=.TRUE.,
+ useLayers=.TRUE.,
  /

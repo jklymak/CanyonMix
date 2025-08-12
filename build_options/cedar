@@ -8,6 +8,8 @@
 #    process but all the libraries you link to must be compiled with
 #    -fPIC or -mcmodel=medium
 # c) flags adjusted for ifort 12.1.0
+#
+# on fir.computecanada.ca: `module load intel/2022`
 
 FC=mpifort
 F90C=mpifort
@@ -22,8 +24,6 @@ DEFINES='-DWORDLENGTH=4'
 CPP='cpp -traditional -P'
 F90FIXEDFORMAT='-fixed -Tf'
 EXTENDED_SRC_FLAG='-132'
-#OMPFLAG='-openmp'
-
 NOOPTFILES=''
 
 # MCMODEL='-fPIC'

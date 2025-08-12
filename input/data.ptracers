@@ -1,0 +1,24 @@
+&PTRACERS_PARM01
+ PTRACERS_numInUse=4,
+ PTRACERS_names(1)='TRAC01',
+ PTRACERS_long_names(1)='deep',
+ PTRACERS_units(1)='umol/kg',
+ PTRACERS_initialFile(1)='../indata/TRAC01.bin',
+# introduce tracer after 20 tidal cycles.
+ PTRACERS_startStepFwd(1) = 892800,
+#
+ PTRACERS_names(2)='TRAC02',
+ PTRACERS_units(2)='umol/kg',
+ PTRACERS_initialFile(2)='../indata/TRAC02.bin',
+ PTRACERS_startStepFwd(2) = 892800,
+#
+ PTRACERS_names(3)='TRAC03',
+ PTRACERS_units(3)='umol/kg',
+ PTRACERS_initialFile(3)='../indata/TRAC03.bin',
+ PTRACERS_startStepFwd(3) = 892800,
+#
+ PTRACERS_names(4)='TRAC04',
+ PTRACERS_units(4)='umol/kg',
+ PTRACERS_initialFile(4)='../indata/TRAC04.bin',
+ PTRACERS_startStepFwd(4) = 892800,
+//

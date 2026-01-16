@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 10
+    runno = 90
     u0 = 0.6
     f0 = 0.0
     fixedKz = None
@@ -84,7 +84,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "wavey slope; move the peaks a bit again;  const N0 = 2e-3, 0.6 m/s forcing; dhdx = 0.7 om / N0, Kz=KL10"
+    comments = "redo of Slope2D010, but without superbee to get the actuall buoyancy flux.  Also will save twice as often for more resolution.  wavey slope; move the peaks a bit again;  const N0 = 2e-3, 0.6 m/s forcing; dhdx = 0.7 om / N0, Kz=KL10"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 

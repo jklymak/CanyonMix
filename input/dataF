@@ -8,10 +8,10 @@
  tRefFile='../indata/TRef.bin',
  sRef= 200*35.,
  viscAz=1.E-5,
- viscAh=1.E-2,
- diffKhT=1.E-2,
+ viscAh=1.E-3,
+ diffKhT=1.E-3,
  diffKzT=1.E-5,
- diffKhS=1.E-2,
+ diffKhS=1.E-3,
  diffKzS=1.E-5,
  no_slip_sides=.FALSE.,
  no_slip_bottom=.FALSE.,
@@ -30,8 +30,8 @@
  bottomDragLinear=0.0,
  nonHydrostatic=.FALSE.,
  hFacMin=0.1,
- tempAdvScheme=77,
- saltAdvScheme=77,
+ tempAdvScheme=2,
+ saltAdvScheme=2,
 # implicSurfPress=0.5,
 # implicDiv2DFlow=0.5,
 # nonlinFreeSurf=3,
@@ -85,8 +85,6 @@
 
 # Input datasets
  &PARM05
- diffKrFile='',
- viscAhZfile='',
  hydrogThetaFile='../indata/Tinit.bin',
  uVelInitFile='../indata/Uinit.bin',
 # vVelInitFile='../indata/V.init',

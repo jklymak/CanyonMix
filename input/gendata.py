@@ -14,7 +14,6 @@ import shutil, os, glob
 import scipy.signal as scisig
 import logging
 from replace_data import replace_data
-import xmitgcm as xm
 
 logging.basicConfig(level=logging.INFO)
 
@@ -24,19 +23,12 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    comments = "Kl10, tidal forcing=0.3 m/s N00 = 2e-3, const strat.  Longer run, and layer diagnostic running alpha =0.55\n"
-
-    runno = 59
-    u0 = 0.3
+    runno = 90
+    u0 = 0.6
     f0 = 0.0
-    fixedKz = 'file'
     fixedKz = None
-    sourceKz = 'Slope2D002'
-    sourceKz = (250, 1e-2, True)  # decay, strength, exponential
-    sourceKz = None
-
     geo_beta = 0.0
-    strat_scale = 500_000_000 # 500  # m
+    strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
     N00 = 2e-3
     if strat_scale < 10_000:
@@ -46,7 +38,7 @@ if True:
     _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
-    alpha = 0.55
+    alpha = 0.7
     dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
     dhdx = alpha * dzdxIW
     expH = False
@@ -74,23 +66,25 @@ if True:
     # wavey slope (sub and supercritical sections)
     super = om / N0 * 1.5
     sub = om / N0 * 0.5
-    db = np.array([0., -200, -700, -1000, -1500, -1800, -2000])
+    db = np.array([0., -400, -700-200, -1000-200, -1500-200, -1800-190, -2000])
     xb = 0. * db
     xb[1] = 15_000.
     crit = [0, sub, super,  sub, super, sub, super]
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
 
-    if True:
+    if False:
         db = np.array([0, -2000])
         xb = 0 * db
-        xb[1] = (db[0] - db[1]) / alpha / om * N00
+        xb[1] = (db[0] - db[1]) / alpha / om * N0
+
 
     runname = f"Slope2D{runno:03d}"
     outdir0 = "../results/" + runname + "/"
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
+    comments = "Like Slope2D010 but with advection scheme 2 and more time resolution\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 
@@ -102,19 +96,9 @@ if True:
     replace_data("dataF", "endTime", f"{endTime}")
 
     if fixedKz:
-        if fixedKz == 'file':
-            replace_data("dataF", "diffKrFile", "'../indata/Kr.bin'")
-            replace_data("dataF", "viscAhZfile", "'../indata/Kr.bin'")
-            for td in ['viscAz', 'diffKzT', 'diffKzS']:
-                replace_data("dataF", f"{td}", f"{1e-5}")
-            for td in ['viscAh', 'diffKhT', 'diffKhS']:
-                replace_data("dataF", f"{td}", f"{4e-2}")
-            replace_data("data.pkg", "useKL10", ".FALSE.")
-        else:
-
-            for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT', 'diffKhS', 'diffKzS']:
-                replace_data("dataF", f"{td}", f"{fixedKz}")
-        replace_data("data.kl10", "KLviscMax", f"{1e-7}")
+        for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT', 'diffKhS', 'diffKzS']:
+            replace_data("dataF", f"{td}", f"{fixedKz}")
+        replace_data("data.kl10", "KLviscMax", f"{fixedKz/1000.}")
     else:
         replace_data("data.kl10", "KLviscMax", "300")
 
@@ -423,57 +407,6 @@ if True:
     _log.info("All Done!")
 
     _log.info("Archiving to home directory")
-
-    if isinstance(sourceKz, str):
-        with xm.open_mdsdataset(f'../results/{sourceKz}/input/',
-                                prefix=['tideave'],
-                                geometry='cartesian', endian='<',
-                                iters='all') as ds0:
-            ds = ds0.isel(YC=0, YG=0, time=slice(-5, None)).mean(dim='time')
-            with open(indir + "/Kr.bin", "wb") as f:
-                ds.KLviscAr.values.tofile(f)
-            fig, ax = plt.subplots()
-            ax.pcolormesh(np.log10(ds.KLviscAr.values), rasterized=True)
-            fig.savefig(outdir + "/figs/Kr.png", dpi=200)
-    elif isinstance(sourceKz, tuple):
-        decay = sourceKz[0]
-        strength = sourceKz[1]
-        exponential = sourceKz[2]
-        _log.info("Using decay %f and strength %f", decay, strength)
-        K = np.ones((nz, ny, nx)) * 1e-5
-        print(z)
-
-        for i in range(nx-1, 0, -1):
-            if d[0, i] > -H:
-                if exponential:
-                    K[:, 0, i] = strength * np.exp((+z+d[0, i]) / decay)
-                else:
-                    ind = np.where(-z < d[0, i]+decay)[0]
-                    K[ind, 0, i] = strength
-                    K[:, 0, i] = 10**np.convolve(np.log10(K[:, 0, i]), np.ones(15) / 15, mode='same')
-                last = i
-            else:
-                if exponential:
-                    K[:, 0, i] = strength * np.exp((+z+d[0, i]) / decay) * np.exp(-(x[last]-x[i])/5e3)
-                else:
-                    ind = np.where(-z < d[0, i]+decay)[0]
-                    K[ind, 0, i] = strength * np.exp(-(x[last]-x[i])/5e3)
-                    K[:, 0, i] = 10**np.convolve(np.log10(K[:, 0, i]), np.ones(15) / 15, mode='same')
-
-        K[K<1e-5] = 1e-5
-
-        fig, ax = plt.subplots()
-        ax.pcolormesh(x, -z, np.log10(K[:, 0, :]), rasterized=True, vmin=-5, vmax=-2)
-        ax.plot(x, d[0, :], 'k')
-        fig.savefig(outdir + "/figs/Kr.png", dpi=200)
-
-        with open(indir + "/Kr.bin", "wb") as f:
-            K.tofile(f)
-
-
-
-
-
 
     try:
         shutil.rmtree("../archive/" + runname)

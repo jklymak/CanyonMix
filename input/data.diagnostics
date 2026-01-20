@@ -55,7 +55,7 @@ fields(1:5,5) = 'LaUH1TH ',
                 'LaTz1TH ',
                 'LTha1TH ',
                 'LTza1TH ',
- frequency(5) = 44640,
+ frequency(5) = 3720,
  fileName(5) = 'layDiag',
 
 # tidal average

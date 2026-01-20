@@ -46,9 +46,9 @@
 # Residual mean flow - Layers Package
  fields(1:5,5) = 'LaUH1TH ',
                  'LaHw1TH ',
-                 'LaTz    ',
-                 'LTha    ',
-                 'LTza    ',
+                 'LaTz1TH ',
+                 'LTha1TH ',
+                 'LTza1TH ',
  frequency(5) = 44640,
  fileName(5) = 'layDiag',
 

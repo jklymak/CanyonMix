@@ -44,16 +44,19 @@
                 'KLviscAr',
 
 # Residual mean flow - Layers Package
-# fields(1:2,5) = 'LaUH1TH ',
+# fields(1:5,5) = 'LaUH1TH ',
 #                 'LaHw1TH ',
+#                 'LaVH1TH ',
 # frequency(5) = 44640,
 # fileName(5) = 'layDiag',
 # Layers thermo fields;  Cant mix with above it seems?
- fields(1:3,5) = 'LaTzTH1 ',
-                 'LThaTH1 ',
-                 'LTzaTH1 ',
+fields(1:5,5) = 'LaUH1TH ',
+                'LaHw1TH ',
+                'LaTz1TH ',
+                'LTha1TH ',
+                'LTza1TH ',
  frequency(5) = 44640,
- fileName(5) = 'layThermo',
+ fileName(5) = 'layDiag',
 
 # tidal average
 #

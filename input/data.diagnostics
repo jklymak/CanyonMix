@@ -50,10 +50,7 @@
 # frequency(5) = 44640,
 # fileName(5) = 'layDiag',
 # Layers thermo fields;  Cant mix with above it seems?
-fields(1:5,5) = 'LaUH1TH ',
-                'LaHw1TH ',
-                'LaTz1TH ',
-                'LTha1TH ',
+fields(1:2,5) = 'LTha1TH ',
                 'LTza1TH ',
  frequency(5) = 3720,
  fileName(5) = 'layDiag',

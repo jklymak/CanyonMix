@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 92
+    runno = 91
     u0 = 0.6
     f0 = 0.0
     fixedKz = None
@@ -84,7 +84,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Like Slope2D010 with more time resolution and with more diagnostics. \n"
+    comments = "Like Slope2D010 with advection scheme 2 instead of 77 more time resolution and with more diagnostics. \n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 

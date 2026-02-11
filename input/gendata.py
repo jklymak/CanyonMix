@@ -70,7 +70,7 @@ if True:
     db = np.array([0., -400, -700-200, -1000-200, -1500-200, -1800-190, -2000])
     crit = [0, sub, super,  sub, super, sub, super]
     # One slope:
-    db = np.array([0., -400, -2000])
+    db = np.array([0., -200, -2000])
     xb = 0. * db
     xb[1] = 15_000.
     crit = [0, sub,  sub]

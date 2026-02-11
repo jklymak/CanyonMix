@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 91
+    runno = 93
     u0 = 0.6
     f0 = 0.0
     fixedKz = None
@@ -66,10 +66,15 @@ if True:
     # wavey slope (sub and supercritical sections)
     super = om / N0 * 1.5
     sub = om / N0 * 0.5
+    # Run 10 and 91:
     db = np.array([0., -400, -700-200, -1000-200, -1500-200, -1800-190, -2000])
+    crit = [0, sub, super,  sub, super, sub, super]
+    # One slope:
+    db = np.array([0., -400, -2000])
     xb = 0. * db
     xb[1] = 15_000.
-    crit = [0, sub, super,  sub, super, sub, super]
+    crit = [0, sub,  sub]
+
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
 

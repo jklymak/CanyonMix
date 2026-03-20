@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 97
+    runno = 98
     u0 = 0.6
     f0 = 0.0
     fixedKz = None
@@ -73,7 +73,7 @@ if True:
     db = np.array([0., -300, -1000, -2000])
     xb = 0. * db
     xb[1] = 25_000.
-    crit = [0, super,  super, super]
+    crit = [0, om/N0,  om/N0, om/N0]
 
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
@@ -89,7 +89,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Like Slope2d096 but supercritical; also some relaxation in eastern sponge to background stratification.\n"
+    comments = "Like Slope2d096 but critical; also some relaxation in eastern sponge to background stratification.\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 

@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 99
+    runno = 100
     u0 = 0.3
     f0 = 0.0
     fixedKz = None
@@ -38,7 +38,7 @@ if True:
     _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
-    alpha = 1.3
+    alpha = 1.0
     dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
     dhdx = alpha * dzdxIW
     expH = False
@@ -89,7 +89,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Like Slope2d098 supercritical; 0.3 m/s velocity.\n"
+    comments = "Like Slope2d097 critical slope; 0.3 m/s velocity.\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 

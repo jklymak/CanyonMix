@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 99
+    runno = 101
     u0 = 0.3
     f0 = 0.0
     fixedKz = None
@@ -73,7 +73,7 @@ if True:
     db = np.array([0., -300, -1000, -2000])
     xb = 0. * db
     xb[1] = 25_000.
-    crit = [0, super,  super, super]
+    crit = [0, sub,  sub, sub]
 
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]

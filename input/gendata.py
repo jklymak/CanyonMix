@@ -23,8 +23,8 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 102
-    u0 = 0.3
+    runno = 103
+    u0 = 0.45
     f0 = 0.0
     fixedKz = None
     geo_beta = 0.0
@@ -92,7 +92,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Like Slope2d091 multiple slopes; 0.3 m/s velocity.\n"
+    comments = f"Like Slope2d091 multiple slopes; {u0} m/s velocity.\n"
     _log.info("runname %s", runname)
     #_log.info("dhdx %f", dhdx)
 

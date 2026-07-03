@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 104
+    runno = 105
     u0 = 0.45
     f0 = 0.0
     fixedKz = None
@@ -38,9 +38,9 @@ if True:
     _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
-    alpha = 1.0
-    dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
-    dhdx = alpha * dzdxIW
+    #alpha = 1.5
+    #dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
+    #dhdx = alpha * dzdxIW
     expH = False
 
     # define the other way:
@@ -73,7 +73,7 @@ if True:
     db = np.array([0., -300, -1000, -2000])
     xb = 0. * db
     xb[1] = 25_000.
-    crit = [0, om/N0,  om/N0, om/N0]
+    crit = [0, sub,  sub, sub]
 
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
@@ -89,9 +89,9 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Like Slope2d097 critical slope; 0.3 m/s velocity.\n"
+    comments = f"Sub-critical slope; {u0} m/s.\n"
     _log.info("runname %s", runname)
-    _log.info("dhdx %f", dhdx)
+    #_log.info("dhdx %f", dhdx)
 
     # reset f0 in data
     shutil.copy("data", "dataF")

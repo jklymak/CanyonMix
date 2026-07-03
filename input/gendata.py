@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 103
+    runno = 104
     u0 = 0.45
     f0 = 0.0
     fixedKz = None
@@ -38,9 +38,9 @@ if True:
     _log.info(f'N0: {N0}')
     # strat_scale = 500 # m
     om = 2 * np.pi / 3600 / 12.4
-    #alpha = 1.5
-    #dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
-    #dhdx = alpha * dzdxIW
+    alpha = 1.0
+    dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
+    dhdx = alpha * dzdxIW
     expH = False
 
     # define the other way:
@@ -68,15 +68,12 @@ if True:
     sub = om / N0 * 0.5
     # Run 10 and 91:
     db = np.array([0., -400, -700-200, -1000-200, -1500-200, -1800-190, -2000])
-    xb = 0. * db
-    xb[1] = 15_000.
     crit = [0, sub, super,  sub, super, sub, super]
     # One slope:
-    if False:
-        db = np.array([0., -300, -1000, -2000])
-        xb = 0. * db
-        xb[1] = 25_000.
-        crit = [0, sub,  sub, sub]
+    db = np.array([0., -300, -1000, -2000])
+    xb = 0. * db
+    xb[1] = 25_000.
+    crit = [0, om/N0,  om/N0, om/N0]
 
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
@@ -92,9 +89,9 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = f"Like Slope2d091 multiple slopes; {u0} m/s velocity.\n"
+    comments = "Like Slope2d097 critical slope; 0.3 m/s velocity.\n"
     _log.info("runname %s", runname)
-    #_log.info("dhdx %f", dhdx)
+    _log.info("dhdx %f", dhdx)
 
     # reset f0 in data
     shutil.copy("data", "dataF")

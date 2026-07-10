@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 106
+    runno = 107
     u0 = 0.45
     f0 = 0.0
     fixedKz = None
@@ -68,12 +68,16 @@ if True:
     sub = om / N0 * 0.5
     # Run 10 and 91:
     db = np.array([0., -400, -700-200, -1000-200, -1500-200, -1800-190, -2000])
-    crit = [0, sub, super,  sub, super, sub, super]
-    # One slope:
-    db = np.array([0., -300, -1000, -2000])
     xb = 0. * db
-    xb[1] = 25_000.
-    crit = [0, super,  super, super]
+    xb[1] = 15_000.
+    # One slope:
+    if False:
+        db = np.array([0., -300, -1000, -2000])
+        xb = 0. * db
+        xb[1] = 25_000.
+        crit = [0, super,  super, super]
+    else:
+        crit = [0, sub,  sub, super, sub, super, sub]
 
     for td in range(2, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
@@ -89,7 +93,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = f"Super-critical; {u0} m/s\n"
+    comments = f"Multiple slopes B; {u0} m/s\n"
     _log.info("runname %s", runname)
     #_log.info("dhdx %f", dhdx)
 

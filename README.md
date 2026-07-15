@@ -42,6 +42,34 @@ Maybe just have straight
   - `input` is where most model setup occurs.
   - `python` is where most processing occurs.
 
+## LaHw1TH provenance (LAYERS package)
+
+`LaHw1TH` is the diagnostics field name for layer thickness at U-points
+for the first configured layer set (`iLa=1`) named `TH`.
+
+- Layer family setup:
+  - `input/data.layers` sets `layers_name(1)='TH'` and layer bounds.
+  - `MITgcm/pkg/layers/layers_readparms.F` maps `TH -> layers_num=1`.
+
+- Diagnostic registration:
+  - `MITgcm/pkg/layers/layers_diagnostics_init.F` builds names with
+    `WRITE(diagName,'(A4,I1,A3)') 'LaHw', iLa, layers_name(iLa)`.
+  - For `iLa=1` and `TH`, this becomes `LaHw1TH`.
+
+- Physical quantity:
+  - `MITgcm/pkg/layers/layers_calc.F` defines `layers_Hw` as
+    "Layer thickness at the U point (m)".
+  - `MITgcm/pkg/layers/layers_fluxcalc.F` computes `Hw` by accumulating
+    sub-cell thickness `dzfac` into the located isopycnal bin.
+
+- Diagnostics fill:
+  - `MITgcm/pkg/layers/layers_calc.F` calls `DIAGNOSTICS_FILL(layers_Hw, ...)
+    ` using the generated name (`LaHw1TH` for the first TH layer set).
+
+- Requested output:
+  - `input/data.diagnostics` includes `LaHw1TH` in the `layHsnap` and
+    `layDiag` diagnostics lists.
+
 
 ## To run
 

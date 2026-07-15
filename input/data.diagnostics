@@ -5,7 +5,7 @@
  filename(1)   = 'spinup',
  frequency(1)  = -930,
  timePhase(1)  = 1116000,
- fields(1:9,1) = 'UVEL    ',
+ fields(1:8,1) = 'UVEL    ',
                  'VVEL    ',
                  'WVEL    ',
                  'THETA   ',
@@ -13,7 +13,6 @@
                  'TRAC01  ',
                  'TRAC02  ',
                  'TRAC03  ',
-                 'DFrI_TH '
 #
 # filename(2)   = 'spinup2d',
 # frequency(2)  = -930,
@@ -36,7 +35,16 @@
  filename(4)   = 'tideave',
  frequency(4)  = 44640,
  timePhase(4)  = 0,
- fields(1:12,4) = 'UVEL    ',
+# Eulerian buoyancy-budget terms (for <w db/dz> vs <w><N^2>):
+# - WVEL    : w
+# - DRHODR  : d(rho)/dz  -> N^2 = -(g/rho0)*DRHODR
+# - WdRHOdP : w*d(rho)/dz -> <w db/dz> = -(g/rho0)*<WdRHOdP>
+# ADVr_TH |WM      LR|degC.m^3/s      |Vertical   Advective Flux of Pot.Temperature
+# ADVx_TH |UU      MR|degC.m^3/s      |Zonal      Advective Flux of Pot.Temperature
+# DFrE_TH |WM      LR|degC.m^3/s      |Vertical Diffusive Flux of Pot.Temperature(Explicit part)
+# DFxE_TH |UU      MR|degC.m^3/s      |Zonal      Diffusive Flux of Pot.Temperature
+# DFrI_TH |WM      LR|degC.m^3/s      |Vertical Diffusive Flux of Pot.Temperature (Implicit part)
+ fields(1:18,4) = 'UVEL    ',
                 'VVEL    ',
                 'WVEL    ',
                 'THETA   ',
@@ -45,6 +53,10 @@
                 'TRAC02  ',
                 'TRAC03  ',
                 'TRAC04  ',
+                'ADVr_TH ',
+                'ADVx_TH ',
+                'DFrE_TH ',
+                'DFxE_TH ',
                 'DFrI_TH ',
                 'KLeps   ',
                 'KLviscAr',
@@ -66,7 +78,6 @@ fields(1:2,6) = 'LaUH1TH ',
                 'LaHw1TH ',
  frequency(6) = 44640,
  fileName(6) = 'layDiag',
-
 
 # tidal average
 #

@@ -4,7 +4,7 @@
 # 3D variables.
  filename(1)   = 'spinup',
  frequency(1)  = -930,
- timePhase(1)  = 1116000,
+ timePhase(1)  = 1071360,
  fields(1:8,1) = 'UVEL    ',
                  'VVEL    ',
                  'WVEL    ',
@@ -28,7 +28,7 @@
 
  filename(3) = 'dissipation',
  frequency(3) = -930,
- timePhase(3) = 0,
+ timePhase(3) = 1071360,
  fields(1:2,3) = 'KLeps   ',
                  'KLviscAr',
 # tidal average

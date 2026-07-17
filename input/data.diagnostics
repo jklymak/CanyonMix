@@ -39,6 +39,10 @@
 # - WVEL    : w
 # - DRHODR  : d(rho)/dz  -> N^2 = -(g/rho0)*DRHODR
 # - WdRHOdP : w*d(rho)/dz -> <w db/dz> = -(g/rho0)*<WdRHOdP>
+# DRHODR  |SM      LR|kg/m^4          |Stratification: d.Sigma/dr (kg/m3/r_unit)
+# WdRHO_P |WM      LR|kg/m^2/s        |Vertical velocity times delta^k(Rho)_at-const-P
+# URHOMASS|UUr     MR|kg/m^2/s        |Zonal Transport of Density
+# WRHOMASS|WM      LR|kg/m^2/s        |Vertical Transport of Density
 # ADVr_TH |WM      LR|degC.m^3/s      |Vertical   Advective Flux of Pot.Temperature
 # ADVx_TH |UU      MR|degC.m^3/s      |Zonal      Advective Flux of Pot.Temperature
 # DFrE_TH |WM      LR|degC.m^3/s      |Vertical Diffusive Flux of Pot.Temperature(Explicit part)
@@ -49,10 +53,10 @@
                 'WVEL    ',
                 'THETA   ',
                 'PHIHYD  ',
-                'TRAC01  ',
-                'TRAC02  ',
-                'TRAC03  ',
-                'TRAC04  ',
+                'URHOMASS',
+                'WRHOMASS',
+                'DRHODR  ',
+                'WdRHO_P ',
                 'ADVr_TH ',
                 'ADVx_TH ',
                 'DFrE_TH ',

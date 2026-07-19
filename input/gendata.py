@@ -23,10 +23,10 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 201
+    runno = 202
     u0 = 0.0
     f0 = 0.0
-    fixedKz = 4e-2
+    fixedKz = 4e-1
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
@@ -49,7 +49,7 @@ if True:
 
     # initialize the tracers 5 tidal periods:
     tracert0 = 12.4*3600*20
-    deltaT = 6.2 * 10
+    deltaT = 6.2 * 4
     # 30 tidal periods:
     endTime = 12.4 * 3600 * 30
 
@@ -89,7 +89,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Critical slope; 0 velocity; Kz=4e-2\n"
+    comments = "Critical slope; 0 velocity; Kz=4e-1\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 

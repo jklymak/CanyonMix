@@ -61,7 +61,7 @@
  startTime=0,
  endTime=1340200.0,
 # nEnditer=72000,
- deltaT=6.2,
+ deltaT=49.6,
  abEps=0.1,
  pChkptFreq=223200.0,
  chkptFreq=0.,

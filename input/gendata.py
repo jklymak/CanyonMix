@@ -24,7 +24,7 @@ _log = logging.getLogger(__name__)
 
 if True:
     runno = 201
-    u0 = 0.45
+    u0 = 0.0
     f0 = 0.0
     fixedKz = 4e-2
     geo_beta = 0.0
@@ -49,7 +49,7 @@ if True:
 
     # initialize the tracers 5 tidal periods:
     tracert0 = 12.4*3600*20
-    deltaT = 6.2
+    deltaT = 6.2 * 10
     # 30 tidal periods:
     endTime = 12.4 * 3600 * 30
 

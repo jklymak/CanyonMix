@@ -48,18 +48,17 @@
 # DFrE_TH |WM      LR|degC.m^3/s      |Vertical Diffusive Flux of Pot.Temperature(Explicit part)
 # DFxE_TH |UU      MR|degC.m^3/s      |Zonal      Diffusive Flux of Pot.Temperature
 # DFrI_TH |WM      LR|degC.m^3/s      |Vertical Diffusive Flux of Pot.Temperature (Implicit part)
- fields(1:18,4) = 'UVEL    ',
+ fields(1:15,4) = 'UVEL    ',
                 'VVEL    ',
                 'WVEL    ',
                 'THETA   ',
                 'PHIHYD  ',
-                'URHOMASS',
-                'WRHOMASS',
                 'DRHODR  ',
                 'WdRHO_P ',
+                'UdRHO_P ',
+                'TOTTTEND',
                 'ADVr_TH ',
                 'ADVx_TH ',
-                'DFrE_TH ',
                 'DFxE_TH ',
                 'DFrI_TH ',
                 'KLeps   ',

@@ -23,10 +23,10 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 202
+    runno = 203
     u0 = 0.0
     f0 = 0.0
-    fixedKz = 4e-1
+    fixedKz = 1e-1
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
@@ -89,7 +89,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Critical slope; 0 velocity; Kz=4e-1\n"
+    comments = "Critical slope; 0 velocity; Kz=1e-1\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 

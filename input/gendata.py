@@ -23,10 +23,11 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 203
+    runno = 204
     u0 = 0.0
     f0 = 0.0
-    fixedKz = 1e-1
+    fixedKz = 'file'
+    sourceKz = (250, 4e-1, True)  # decay, strength, exponential
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
     strat_scale_comp = 500
@@ -62,6 +63,13 @@ if True:
     else:
         seafloor = ''
 
+    # model size
+    nx = 8 * 120
+    ny = 1
+    nz = 200
+
+    _log.info("nx %d ny %d nz %d", nx, ny, nz)
+
     # define bathy:
     # wavey slope (sub and supercritical sections)
     super = om / N0 * 1.5
@@ -86,10 +94,10 @@ if True:
 
     runname = f"Slope2D{runno:03d}"
     outdir0 = "../results/" + runname + "/"
-    #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
+    #comments = f"{ runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Critical slope; 0 velocity; Kz=1e-1\n"
+    comments = "Critical slope; 0 velocity; Kz exponential from slope edge 4e-1 at bottom 250 m decay\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 
@@ -100,21 +108,26 @@ if True:
     replace_data("dataF", "deltaT", f"{deltaT}")
     replace_data("dataF", "endTime", f"{endTime}")
 
+
+
     if fixedKz:
-        for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT', 'diffKhS', 'diffKzS']:
-            replace_data("dataF", f"{td}", f"{fixedKz}")
-        replace_data("data.kl10", "KLviscMax", f"{fixedKz/1000.}")
+        if fixedKz == 'file':
+            print('Using Kz from file')
+            replace_data("dataF", "diffKrFile", "'../indata/Kr.bin'")
+            replace_data("dataF", "viscAhZfile", "'../indata/Kr.bin'")
+            for td in ['viscAz', 'diffKzT', 'diffKzS']:
+                replace_data("dataF", f"{td}", f"{1e-5}")
+            for td in ['viscAh', 'diffKhT', 'diffKhS']:
+                replace_data("dataF", f"{td}", f"{4e-2}")
+            replace_data("data.pkg", "useKL10", ".FALSE.")
+        else:
+            for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT', 'diffKhS', 'diffKzS']:
+                replace_data("dataF", f"{td}", f"{fixedKz}")
+                replace_data("data.kl10", "KLviscMax", f"{fixedKz/1000.}")
     else:
         replace_data("data.kl10", "KLviscMax", "300")
 
-    replace_data("data.pkg", "useKL10", ".TRUE.")
-
-    # model size
-    nx = 8 * 120
-    ny = 1
-    nz = 200
-
-    _log.info("nx %d ny %d", nx, ny)
+        replace_data("data.pkg", "useKL10", ".TRUE.")
 
     #### Set up the output directory
     backupmodel = True
@@ -288,6 +301,57 @@ if True:
         dz.tofile(f)
     f.close()
     z = np.cumsum(dz)
+
+
+    ######################
+    # viscocity
+    if isinstance(sourceKz, str):
+        with xm.open_mdsdataset(f'../results/{sourceKz}/input/',
+                                prefix=['tideave'],
+                                geometry='cartesian', endian='<',
+                                iters='all') as ds0:
+            ds = ds0.isel(YC=0, YG=0, time=slice(-5, None)).mean(dim='time')
+            with open(indir + "/Kr.bin", "wb") as f:
+                ds.KLviscAr.values.tofile(f)
+            fig, ax = plt.subplots()
+            ax.pcolormesh(np.log10(ds.KLviscAr.values), rasterized=True)
+            fig.savefig(outdir + "/figs/Kr.png", dpi=200)
+    elif isinstance(sourceKz, tuple):
+        decay = sourceKz[0]
+        strength = sourceKz[1]
+        exponential = sourceKz[2]
+        _log.info("Using decay %f and strength %f", decay, strength)
+        K = np.ones((nz, ny, nx)) * 1e-5
+        print(z)
+
+        for i in range(nx-1, 0, -1):
+            if d[0, i] > -H:
+                if exponential:
+                    K[:, 0, i] = strength * np.exp((+z+d[0, i]) / decay)
+                else:
+                    ind = np.where(-z < d[0, i]+decay)[0]
+                    K[ind, 0, i] = strength
+                    K[:, 0, i] = 10**np.convolve(np.log10(K[:, 0, i]), np.ones(15) / 15, mode='same')
+                last = i
+            else:
+                if exponential:
+                    K[:, 0, i] = strength * np.exp((+z+d[0, i]) / decay) * np.exp(-(x[last]-x[i])/5e3)
+                else:
+                    ind = np.where(-z < d[0, i]+decay)[0]
+                    K[ind, 0, i] = strength * np.exp(-(x[last]-x[i])/5e3)
+                    K[:, 0, i] = 10**np.convolve(np.log10(K[:, 0, i]), np.ones(15) / 15, mode='same')
+
+        K[K<1e-5] = 1e-5
+
+        fig, ax = plt.subplots()
+        ax.pcolormesh(x, -z, np.log10(K[:, 0, :]), rasterized=True, vmin=-5, vmax=-2)
+        ax.plot(x, d[0, :], 'k')
+        fig.savefig(outdir + "/figs/Kr.png", dpi=200)
+
+        with open(indir + "/Kr.bin", "wb") as f:
+            K.tofile(f)
+
+
 
     ####################
     # temperature profile...

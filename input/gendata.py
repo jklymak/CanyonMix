@@ -119,7 +119,8 @@ if True:
                 replace_data("dataF", f"{td}", f"{1e-5}")
             for td in ['viscAh', 'diffKhT', 'diffKhS']:
                 replace_data("dataF", f"{td}", f"{4e-2}")
-            replace_data("data.pkg", "useKL10", ".FALSE.")
+            replace_data("data.kl10", "KLviscMax", "1e-7")
+    # replace_data("data.pkg", "useKL10", ".FALSE.")
         else:
             for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT', 'diffKhS', 'diffKzS']:
                 replace_data("dataF", f"{td}", f"{fixedKz}")
@@ -127,7 +128,7 @@ if True:
     else:
         replace_data("data.kl10", "KLviscMax", "300")
 
-        replace_data("data.pkg", "useKL10", ".TRUE.")
+    replace_data("data.pkg", "useKL10", ".TRUE.")
 
     #### Set up the output directory
     backupmodel = True

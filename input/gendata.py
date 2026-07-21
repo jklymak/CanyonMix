@@ -84,9 +84,10 @@ if True:
     crit = [om/N0, om/N0,  om/N0, om/N0]
     if shelf:
         xb[1] = 25_000.
-        st = 1
-    else:
         st = 2
+    else:
+        st = 1
+
     for td in range(st, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
     print('xb', xb)

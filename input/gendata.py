@@ -89,6 +89,8 @@ if True:
         st = 2
     for td in range(st, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
+    print('xb', xb)
+    print('db', db)
 
     if False:
         db = np.array([0, -2000])

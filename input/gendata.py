@@ -23,10 +23,10 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 205
+    runno = 206
     u0 = 0.0
     f0 = 0.0
-    fixedKz = 'file'
+    fixedKz = 1e-1
     sourceKz = (250, 4e-1, True)  # decay, strength, exponential
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
@@ -104,7 +104,7 @@ if True:
     #comments = f"{ runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Critical slope; 0 velocity; Kz exponential from slope edge 4e-1 at bottom 250 m decay; no shelf\n"
+    comments = "Critical slope; 0 velocity; Kz constant 1e-1; no shelf\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 
@@ -130,6 +130,8 @@ if True:
     # replace_data("data.pkg", "useKL10", ".FALSE.")
         else:
             for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT', 'diffKhS', 'diffKzS']:
+                replace_data("dataF", "diffKrFile", "''")
+                replace_data("dataF", "viscAhZfile", "''")
                 replace_data("dataF", f"{td}", f"{fixedKz}")
                 replace_data("data.kl10", "KLviscMax", f"{fixedKz/1000.}")
     else:

@@ -86,7 +86,7 @@
 # Input datasets
  &PARM05
  diffKrFile='',
- viscAhZFile='../indata/Kr.bin',
+ viscAhZFile='',
  hydrogThetaFile='../indata/Tinit.bin',
  uVelInitFile='../indata/Uinit.bin',
 # vVelInitFile='../indata/V.init',

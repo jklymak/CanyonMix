@@ -121,7 +121,7 @@ if True:
         if fixedKz == 'file':
             print('Using Kz from file')
             replace_data("dataF", "diffKrFile", "'../indata/Kr.bin'")
-            replace_data("dataF", "viscAhZfile", "'../indata/Kr.bin'")
+            replace_data("dataF", "viscAhZFile", "'../indata/Kr.bin'")
             for td in ['viscAz', 'diffKzT', 'diffKzS']:
                 replace_data("dataF", f"{td}", f"{1e-5}")
             for td in ['viscAh', 'diffKhT', 'diffKhS']:
@@ -131,7 +131,7 @@ if True:
         else:
             for td in ['viscAz', 'viscAh', 'diffKhT', 'diffKzT', 'diffKhS', 'diffKzS']:
                 replace_data("dataF", "diffKrFile", "''")
-                replace_data("dataF", "viscAhZfile", "''")
+                replace_data("dataF", "viscAhZFile", "''")
                 replace_data("dataF", f"{td}", f"{fixedKz}")
                 replace_data("data.kl10", "KLviscMax", f"{fixedKz/1000.}")
     else:

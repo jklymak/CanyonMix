@@ -1,9 +1,7 @@
 # Packages
  &PACKAGES
  useKL10=.TRUE.,
- useKPP=.FALSE.,
  useDIAGNOSTICS=.TRUE.,
- useMNC=.TRUE.,
  useOBCS=.TRUE.,
  usePTRACERS=.TRUE.,
  useLayers=.TRUE.,

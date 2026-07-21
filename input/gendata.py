@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 204
+    runno = 205
     u0 = 0.0
     f0 = 0.0
     fixedKz = 'file'
@@ -43,6 +43,7 @@ if True:
     dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
     dhdx = alpha * dzdxIW
     expH = False
+    shelf = False
 
     # define the other way:
     #dhdx = 2000 / 50_000
@@ -80,10 +81,13 @@ if True:
     # One slope:
     db = np.array([0., -300, -1000, -2000])
     xb = 0. * db
-    xb[1] = 25_000.
-    crit = [0, om/N0,  om/N0, om/N0]
-
-    for td in range(2, len(db)):
+    crit = [om/N0, om/N0,  om/N0, om/N0]
+    if shelf:
+        xb[1] = 25_000.
+        st = 1
+    else:
+        st = 2
+    for td in range(st, len(db)):
         xb[td] = xb[td-1] + (db[td-1] - db[td]) / crit[td]
 
     if False:
@@ -97,7 +101,7 @@ if True:
     #comments = f"{ runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Critical slope; 0 velocity; Kz exponential from slope edge 4e-1 at bottom 250 m decay\n"
+    comments = "Critical slope; 0 velocity; Kz exponential from slope edge 4e-1 at bottom 250 m decay; no shelf\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 

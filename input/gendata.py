@@ -42,7 +42,7 @@ if True:
     alpha = 1.0
     dzdxIW = np.sqrt((om**2 - f0**2) / (N00**2 - om**2))
     dhdx = alpha * dzdxIW
-    expH = False
+    expH = True
 
     # define the other way:
     #dhdx = 2000 / 50_000
@@ -253,21 +253,42 @@ if True:
     # xlim([-50,50])
     fig.savefig(outdir + "/figs/dx.pdf")
 
+    ##################
+    # dz:
+    # dz is from the surface down (right?).  Its saved as positive.
+    H = 2000
+
+    dz = np.ones((1, nz)) * H / nz
+
+    with open(indir + "/delZ.bin", "wb") as f:
+        dz.tofile(f)
+    f.close()
+    z = np.cumsum(dz)
+
+    #### temperature and N profile:
+    g = 9.8
+    alpha = 2e-4
+    T0 = 28 + np.cumsum(N0**2 / g / alpha * (-dz) * np.exp((-z) / strat_scale))
+    Nsq = N0**2 * np.exp(-z / strat_scale)
+
+
     ######## Bathy ############
     # get the topo:
     d = np.zeros((ny, nx))
-    H = 2000
     if not expH:
         d[0, :]  = np.interp(x, x[-1] - xb[::-1], db[::-1], left=-H, right=0)
     else:
         # lets use stratification for the slope:
         for i in range(nx-1, -1, -1):
-            if x[i] > -25_000:
-                d[0, i] = x[i] * 200 / 25_000
+            xx = x - x[-1]
+            if xx[i] > -25_000:
+                d[0, i] = xx[i] * 200 / 25_000
+                print(d[0, i], xx[i])
             else:
-                N_local = np.interp(d[0, i], z, z, N0)
-                dhdx = -alpha * N_local / om
-                d[0, i] = d[0, i-1] + (dhdx * dx[i])
+                N_local = np.interp(d[0, i+1], -z[::-1], np.sqrt(Nsq)[::-1])
+                print(N_local, d[0, i+1])
+                dhdx = alpha * N_local / om
+                d[0, i] = d[0, i+1] - (dhdx * dx[i])
 
     if len(xb) > 2:
         # smooth the sharp edges
@@ -291,26 +312,11 @@ if True:
     fig.savefig(outdir + "/figs/topo.pdf")
 
 
-
-    ##################
-    # dz:
-    # dz is from the surface down (right?).  Its saved as positive.
-    dz = np.ones((1, nz)) * H / nz
-
-    with open(indir + "/delZ.bin", "wb") as f:
-        dz.tofile(f)
-    f.close()
-    z = np.cumsum(dz)
-
     ####################
     # temperature profile...
     #
     # temperature goes on the zc grid:
-    g = 9.8
-    alpha = 2e-4
-    T0 = 28 + np.cumsum(N0**2 / g / alpha * (-dz) * np.exp((-z) / strat_scale))
-    # surface mixed layer:
-    # T0[0:10] = T0[10]
+
 
     with open(indir + "/TRef.bin", "wb") as f:
         T0.tofile(f)

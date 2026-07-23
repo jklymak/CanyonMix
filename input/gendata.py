@@ -287,7 +287,9 @@ if True:
             else:
                 N_local = np.interp(d[0, i+1], -z[::-1], np.sqrt(Nsq)[::-1])
                 print(N_local, d[0, i+1], alpha)
-                dhdx = alpha * N_local / om
+                dhdx = alpha * om / N_local
+                print(dhdx, dx[i], alpha, N_local, om)
+
                 d[0, i] = d[0, i+1] - (dhdx * dx[i])
 
     if len(xb) > 2:

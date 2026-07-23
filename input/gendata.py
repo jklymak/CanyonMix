@@ -23,12 +23,13 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 108
-    u0 = 0.45
+    runno = 301
+    u0 = 0.2
     f0 = 0.0
     fixedKz = None
     geo_beta = 0.0
     strat_scale = 1e30 # 500  # m
+    strat_scale = 300 # m
     strat_scale_comp = 500
     N00 = 2e-3
     if strat_scale < 10_000:
@@ -89,7 +90,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Critical slope; 0.45 m/s velocity. (Same as 104 but more diagnostics)\n"
+    comments = "Critical slope exponential strat; 0.2 m/s velocity.\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 
@@ -256,13 +257,25 @@ if True:
     # get the topo:
     d = np.zeros((ny, nx))
     H = 2000
-    d[0, :]  = np.interp(x, x[-1] - xb[::-1], db[::-1], left=-H, right=0)
+    if not expH:
+        d[0, :]  = np.interp(x, x[-1] - xb[::-1], db[::-1], left=-H, right=0)
+    else:
+        # lets use stratification for the slope:
+        for i in range(nx-1, -1, -1):
+            if x[i] > -25_000:
+                d[0, i] = x[i] * 200 / 25_000
+            else:
+                N_local = np.interp(d[0, i], z, z, N0)
+                dhdx = -alpha * N_local / om
+                d[0, i] = d[0, i-1] + (dhdx * dx[i])
+
     if len(xb) > 2:
         # smooth the sharp edges
         d[0, :] = np.convolve(d[0, :], np.ones(10) / 10, mode="same")
     d[0, d[0,:] < -H] = -H
     d[0, :20] = -H
     d[0, -1] = 0.0
+
 
     with open(indir + "/topog.bin", "wb") as f:
         d.tofile(f)

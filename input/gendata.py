@@ -267,8 +267,8 @@ if True:
 
     #### temperature and N profile:
     g = 9.8
-    alpha = 2e-4
-    T0 = 28 + np.cumsum(N0**2 / g / alpha * (-dz) * np.exp((-z) / strat_scale))
+    Talpha = 2e-4
+    T0 = 28 + np.cumsum(N0**2 / g / Talpha * (-dz) * np.exp((-z) / strat_scale))
     Nsq = N0**2 * np.exp(-z / strat_scale)
 
 

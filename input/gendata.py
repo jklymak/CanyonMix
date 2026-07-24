@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 304
+    runno = 305
     u0 = 0.3
     f0 = 0.0
     fixedKz = None
@@ -293,9 +293,9 @@ if True:
                 d[0, i] = d[0, i+1] - (dhdx * dx[i])
         # make a linear from X=-50 to the topography say about 250 m.
         ind = np.where(xx>-60_000)[0][0]
-        print(ind)
+        # make a ramp leading into the other slope:
         for i in range(ind, nx):
-            d[0, i] = np.max([-2000 + (xx[i] + 60_000) * 250 / 15_000, d[0, i]])
+            d[0, i] = np.max([-2000 + (xx[i] + 60_000)**2 * 250 / 15_000**2, d[0, i]])
         # d[0, :] = np.convolve(d[0, :], np.ones(10) / 10, mode="same")
         #ind = np.where((xx > -60_000) & (xx < -35_000))[0]
         # d[0, ind] = np.convolve(d[0, ind], np.ones(30) / 30, mode="same")

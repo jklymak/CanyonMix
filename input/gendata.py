@@ -295,7 +295,7 @@ if True:
         ind = np.where((xx>-55_000) & (xx<-40_000))[0]
         # make a ramp leading into the other slope:
         for i in ind:
-            d[0, i] = np.max([-2000 + (xx[i] + 55_000)**2 * 250 / 12_000**2, d[0, i]])
+            d[0, i] = np.max([-2000 + (xx[i] + 55_000)**2 * 250 / 11_000**2, d[0, i]])
         # d[0, :] = np.convolve(d[0, :], np.ones(10) / 10, mode="same")
         #ind = np.where((xx > -60_000) & (xx < -35_000))[0]
         # d[0, ind] = np.convolve(d[0, ind], np.ones(30) / 30, mode="same")

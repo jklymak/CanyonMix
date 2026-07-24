@@ -297,8 +297,8 @@ if True:
         for i in range(ind, nx):
             d[0, i] = np.max([-2000 + (xx[i] + 60_000) * 250 / 15_000, d[0, i]])
         # d[0, :] = np.convolve(d[0, :], np.ones(10) / 10, mode="same")
-        ind = np.where((xx > -60_000) & (xx < -35_000))[0]
-        d[0, ind] = np.convolve(d[0, ind], np.ones(30) / 30, mode="same")
+        #ind = np.where((xx > -60_000) & (xx < -35_000))[0]
+        # d[0, ind] = np.convolve(d[0, ind], np.ones(30) / 30, mode="same")
 
     if len(xb) > 2:
         # smooth the sharp edges

@@ -31,7 +31,7 @@ if True:
     strat_scale = 1e30 # 500  # m
     strat_scale = 300 # m
     strat_scale_comp = 500
-    N00 = 2e-3
+    N00 = 3e-3
     if strat_scale < 10_000:
         N0 = N00 / np.exp(-1) # so N0 is stratification at strat_scale depth
     else:
@@ -90,7 +90,7 @@ if True:
     #comments = f"{runname} alpha = {alpha}. {strattype} stratification. u_0={u0}. N_0={N0}.  Four tracers\n"
     #comments += f"   topox: {xb} topodepth: {db}\n"
     #print(comments)
-    comments = "Critical slope exponential strat; 0.3 m/s velocity.\n"
+    comments = "Critical slope exponential strat, N0=3e-3; 0.3 m/s velocity. More sculpting of ramp\n"
     _log.info("runname %s", runname)
     _log.info("dhdx %f", dhdx)
 

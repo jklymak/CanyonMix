@@ -292,7 +292,7 @@ if True:
 
                 d[0, i] = d[0, i+1] - (dhdx * dx[i])
         # make a linear from X=-50 to the topography say about 250 m.
-        ind = np.where(xx>-60_000)[0][0]
+        ind = np.where((xx>-60_000) & (xx<-40_000))[0][0]
         # make a ramp leading into the other slope:
         for i in range(ind, nx):
             d[0, i] = np.max([-2000 + (xx[i] + 60_000)**2 * 250 / 15_000**2, d[0, i]])

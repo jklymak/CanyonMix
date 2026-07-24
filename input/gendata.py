@@ -300,7 +300,8 @@ if True:
         #ind = np.where((xx > -60_000) & (xx < -35_000))[0]
         # d[0, ind] = np.convolve(d[0, ind], np.ones(30) / 30, mode="same")
 
-    if len(xb) > 2:
+    # if len(xb) > 2:
+    if True:
         # smooth the sharp edges
         d[0, :] = np.convolve(d[0, :], np.ones(10) / 10, mode="same")
     d[0, d[0,:] < -H] = -H

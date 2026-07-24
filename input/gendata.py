@@ -292,10 +292,10 @@ if True:
 
                 d[0, i] = d[0, i+1] - (dhdx * dx[i])
         # make a linear from X=-50 to the topography say about 250 m.
-        ind = np.where(xx>-50_000)[0][0]
+        ind = np.where(xx>-55_000)[0][0]
         print(ind)
         for i in range(ind, nx):
-            d[0, i] = np.max([-2000 + (xx[i] + 50_000) * 250 / 10_000, d[0, i]])
+            d[0, i] = np.max([-2000 + (xx[i] + 55_000) * 250 / 15_000, d[0, i]])
 
     if len(xb) > 2:
         # smooth the sharp edges

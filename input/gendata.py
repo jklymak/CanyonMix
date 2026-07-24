@@ -23,7 +23,7 @@ _log = logging.getLogger(__name__)
 
 
 if True:
-    runno = 303
+    runno = 304
     u0 = 0.3
     f0 = 0.0
     fixedKz = None
@@ -291,6 +291,11 @@ if True:
                 print(dhdx, dx[i], alpha, N_local, om)
 
                 d[0, i] = d[0, i+1] - (dhdx * dx[i])
+        # make a linear from X=-50 to the topography say about 250 m.
+        ind = np.where(xx>-50_000)[0][0]
+        print(ind)
+        for i in range(ind, nx):
+            d[0, i] = np.max([-2000 + (xx[i] + 50_000) * 250 / 10_000, d[0, i]])
 
     if len(xb) > 2:
         # smooth the sharp edges

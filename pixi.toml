@@ -1,0 +1,55 @@
+[workspace]
+authors = ["Jody Klymak <jklymak@gmail.com>"]
+channels = ["conda-forge"]
+name = "CanyonMix"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+downloadmitgcm = { cmd = "git clone --depth 25 git@github.com:jklymak/MITgcm.git", outputs = ["MITgcm/model/src/write_state.F"] }
+
+configure = { cmd = "cd build && ../MITgcm/tools/genmake2 -optfile=../build_options/darwin_brewgfortranmpi -mods=../code/ -rootdir=../MITgcm -mpi", inputs = ["build_options/darwin_brewgfortranmpi", "code/packages.conf"], outputs = ["build/Makefile"], depends-on = ["downloadmitgcm"] }
+
+reallyclean = "cd build && make CLEAN"
+
+build = { cmd = "cd build && make depend && make && codesign -f -s - mitgcmuv", depends-on = ["configure"], inputs = ["code/SIZE.h", "code/OBCS_OPTIONS.h", "code/DIAGNOSTICS_SIZE.h", "code/CPP_OPTIONS.h", "code/LAYERS_SIZE.h"], outputs = ["build/mitgcmuv"] }
+
+preprun = { cmd = "cd input && python gendata.py", inputs = ["input/gendata.py", "build/mitgcmuv"], outputs = ["runs/RunFr1300/build/mitgcmuv"], depends-on = ["build"] }
+run = { cmd = "cd runs/RunFr1300/input && mpirun -np 4 ../build/mitgcmuv", inputs = ["runs/RunFr1300/input/data"], outputs = ["runs/RunFr1300/input/STDOUT.0000", "runs/RunFr1300/input/STDERR.0000"], depends-on = ["preprun"] }
+
+analyze = { cmd = "jupyter lab analysis/PlotRun.ipynb", depends-on = ["run"] }
+
+all = { depends-on = ["analyze"] }
+
+makenotespdf = { cmd = "pandoc -s -o writeup/Notes.pdf writeup/Notes.md --resource-path=writeup --lua-filter=writeup/png-to-pdf.lua -M date=\"$(date '+%B %d, %Y')\"", inputs = ["writeup/Notes.md", "writeup/png-to-pdf.lua"], outputs = ["writeup/Notes.pdf"] }
+
+[dependencies]
+python = "<3.13.0"
+numpy = "*"
+scipy = "*"
+xarray = "*"
+dask = "*"
+netcdf4 = "*"
+matplotlib = "*"
+jupyter = "*"
+ipympl = "*"
+black = ">=25.1.0,<26"
+openmpi-mpicxx = ">=5.0.7,<6"
+openmpi-mpicc = ">=5.0.7,<6"
+openmpi-mpifort = ">=5.0.7,<6"
+openmpi = ">=5.0.7,<6"
+cxx-compiler = ">=1.9.0,<2"
+clang = ">=18.1.8,<19"
+compilers = ">=1.9.0,<2"
+xhistogram = ">=0.3.2,<0.4"
+libgfortran5 = "==14.2.0"
+ipykernel = ">=7.3.0,<8"
+xgcm = ">=0.10.1,<0.11"
+numba = ">=0.66.0,<0.67"
+
+
+[pypi-dependencies]
+xmitgcm = {path = "/Users/jklymak/Dropbox/xmitgcm", editable = true}
+jmkfigure = { path = "/Users/jklymak/jmkfigure", editable = true }
+mpl-direct-layout = { path = "/Users/jklymak/Dropbox/mpl-direct-layout", editable = true }
+
